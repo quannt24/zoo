@@ -85,7 +85,7 @@ public class LevelActivity extends Activity {
 		b[i][j].setBackgroundResource(R.drawable.level);
 		b[i][j].setTextSize(30); // TODO Relative size
 		b[i][j].setTextColor(Color.BLUE);
-		b[i][j].setText(String.valueOf(level));
+		b[i][j].setText(String.valueOf(level + 1));
 
 		mTableRow[j / 3].addView(b[i][j]);
 	    }
@@ -107,6 +107,10 @@ public class LevelActivity extends Activity {
 	mSwipeView.setPageControl(mPageControl);
     }
 
+    public void onBack(View v) {
+	super.onBackPressed();
+    }
+    
     private class SwipeImageLoader implements OnPageChangedListener {
 
 	public void onPageChanged(int oldPage, int newPage) {
