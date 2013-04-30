@@ -1,0 +1,7 @@
+# Temp files
+*~
+*.swp
+
+# Generated files
+/bin/
+/gen/
