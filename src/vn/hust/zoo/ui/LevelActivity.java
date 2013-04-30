@@ -5,6 +5,7 @@ import uk.co.jasonfry.android.tools.ui.SwipeView;
 import uk.co.jasonfry.android.tools.ui.SwipeView.OnPageChangedListener;
 import vn.hust.zoo.R;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -81,7 +82,10 @@ public class LevelActivity extends Activity {
 			Log.d("Button", "Press" + level);
 		    }
 		});
-		b[i][j].setBackgroundResource(R.drawable.menu_lock);
+		b[i][j].setBackgroundResource(R.drawable.level);
+		b[i][j].setTextSize(30); // TODO Relative size
+		b[i][j].setTextColor(Color.BLUE);
+		b[i][j].setText(String.valueOf(level));
 
 		mTableRow[j / 3].addView(b[i][j]);
 	    }
