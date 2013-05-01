@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|right"
-            android:text="Menu" />
+            android:background="@drawable/ic_launcher" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,26 +29,38 @@
             android:gravity="bottom|center_horizontal" >
 
             <Button
+                android:id="@+id/correct0"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/correct1"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/correct2"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/correct3"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/correct4"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <Button
+                android:id="@+id/correct5"
+                style="@style/AppTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -66,21 +78,25 @@
                 android:layout_height="wrap_content" >
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
@@ -91,21 +107,25 @@
                 android:layout_height="wrap_content" >
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
@@ -123,6 +143,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_normal"
+                android:contentDescription="@string/app_name"
                 android:onClick="onSwitch" />
         </LinearLayout>
     </LinearLayout>
