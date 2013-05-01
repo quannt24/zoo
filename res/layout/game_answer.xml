@@ -79,24 +79,28 @@
 
                 <Button
                     style="@style/AppTheme"
+                    android:id="@+id/answer0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
@@ -107,25 +111,29 @@
                 android:layout_height="wrap_content" >
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme"
+                    style="@style/AppTheme" 
+                    android:id="@+id/answer7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="onAnswer" />

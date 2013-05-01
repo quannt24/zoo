@@ -30,7 +30,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		getFragmentManager().addOnBackStackChangedListener(this);
 		
 		//TODO gameLogic
-		GameLogic.setCorrectAnswer();
+		GameLogic.initCharactec();
 	}
 	
 	public void onAnswer(View v){
@@ -128,13 +128,19 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
 				b.setText(GameLogic.getAnswer().get(i));
-				Log.d("Text","" + GameLogic.getAnswer().get(i));
 			}
 			for(int i = 0; i < 6; i++){
 				String button = "correct" + i;
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
 				if(b.getText().equals(" ") || b.getText().equals("")) b.setVisibility(View.INVISIBLE);
+			}
+			for(int i = 0; i < 8; i++){
+				String button = "answer" + i;
+				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
+				Button b = (Button) mGameActivity.findViewById(buttonID);
+				b.setText(GameLogic.getAll().get(i));
+				Log.d("Answer","" + GameLogic.getAll().get(i));
 			}
 		}
     }
