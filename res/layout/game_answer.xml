@@ -23,6 +23,7 @@
         android:orientation="vertical" >
 
         <LinearLayout
+            android:id="@+id/correct"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -32,77 +33,91 @@
                 android:id="@+id/correct0"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/correct1"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/correct2"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/correct3"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/correct4"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
 
             <Button
                 android:id="@+id/correct5"
                 style="@style/AppTheme"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:layout_weight="1"
             android:gravity="top|center"
-            android:orientation="vertical"
-            android:paddingTop="50dp" >
+            android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
                 <Button
-                    style="@style/AppTheme"
                     android:id="@+id/answer0"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer1"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer2"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer3"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
             </LinearLayout>
 
@@ -111,31 +126,39 @@
                 android:layout_height="wrap_content" >
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer4"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer5"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer6"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
 
                 <Button
-                    style="@style/AppTheme" 
                     android:id="@+id/answer7"
+                    style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginRight="10dp"
                     android:onClick="onAnswer" />
             </LinearLayout>
         </LinearLayout>

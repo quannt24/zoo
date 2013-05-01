@@ -8,7 +8,7 @@ import android.util.Log;
 
 public class GameLogic {
 	private static int level = 1;
-	private static String name  = "su tu";
+	private static String name  = "cho";
 	private static ArrayList<String> answer = new ArrayList<String>();
 	private static ArrayList<String> all = new ArrayList<String>();
 	private static Random r = new Random();
