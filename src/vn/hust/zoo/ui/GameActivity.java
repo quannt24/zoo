@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class GameActivity extends Activity  implements FragmentManager.OnBackStackChangedListener {
     private boolean mShowingBack = false;
@@ -28,9 +29,15 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		getFragmentManager().addOnBackStackChangedListener(this);
 	}
 	
+	public void onAnswer(View v){
+		Log.d("Alphabet","" + ((Button)v).getText());
+		((Button)v).setText("C");
+	}
+	
 	public void onSwitch(View v){
 		switch(v.getId()){
 		case R.id.game_question: 
+		case R.id.game_Image:
 			//TODO switch to answer
 			Log.d("Flip", "1"); 
 			flipCard(); 
