@@ -16,6 +16,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 
 public class LevelActivity extends Activity {
 
@@ -65,6 +66,13 @@ public class LevelActivity extends Activity {
 	for (int i = 0; i < 3; i++) {
 	    TableLayout mTableLayout = new TableLayout(this);
 	    TableRow mTableRow[] = new TableRow[3];
+	    
+	    LayoutParams buttonParams = new TableRow.LayoutParams();
+	    buttonParams.leftMargin = 15;
+	    buttonParams.rightMargin = 15;
+	    buttonParams.topMargin = 5;
+	    buttonParams.bottomMargin = 5;
+	    
 	    for (int j = 0; j < 9; j++) {
 		if (j % 3 == 0) {
 		    mTableRow[j / 3] = new TableRow(this);
@@ -82,12 +90,13 @@ public class LevelActivity extends Activity {
 			Log.d("Button", "Press" + level);
 		    }
 		});
-		b[i][j].setBackgroundResource(R.drawable.level);
+		
+		b[i][j].setBackgroundResource(R.drawable.button_level);
 		b[i][j].setTextSize(30); // TODO Relative size
-		b[i][j].setTextColor(Color.BLUE);
+		b[i][j].setTextColor(Color.WHITE);
 		b[i][j].setText(String.valueOf(level + 1));
 
-		mTableRow[j / 3].addView(b[i][j]);
+		mTableRow[j / 3].addView(b[i][j], buttonParams);
 	    }
 
 	    mTableLayout.addView(mTableRow[0]);
