@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/swipe_answer"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:gravity="right" >
@@ -31,12 +32,26 @@
         android:layout_height="fill_parent"
         android:orientation="vertical" >
 
-        <LinearLayout
-            android:id="@+id/correct"
+          <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
             android:gravity="bottom|center_horizontal" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_normal"
+                android:contentDescription="@string/app_name"
+                android:visibility="visible" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/correct"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center" >
 
             <Button
                 android:id="@+id/correct0"
@@ -91,7 +106,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:layout_weight="1"
+            android:layout_weight="4"
             android:gravity="top|center"
             android:orientation="vertical" >
 
@@ -181,8 +196,7 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:id="@+id/swipe_answer"
+            android:layout_weight="0"
             android:gravity="top|center" >
 
             <ImageView
@@ -191,7 +205,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_normal"
                 android:contentDescription="@string/app_name"
-                android:onClick="onSwitch" />
+                android:onClick="onSwitch"
+                android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>
 

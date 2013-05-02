@@ -22,7 +22,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	public static int RIGHT2LEFT = 0;
 	public static int LEFT2RIGHT = 1;
 	
-	public static int direction = 0;
+	public static int direction = RIGHT2LEFT;
 
     private boolean mShowingBack = false;
     
@@ -120,7 +120,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
     }
 
     public static class SwingGestureDetection extends SimpleOnGestureListener{
-    	private static int SWIPE_MIN_DISTANCE = 10;
+    	private static int SWIPE_MIN_DISTANCE = 70;
     	private static int SWIPE_THRESHOLD_VELOCITY = 10;
     	
     	private ImageView i;
@@ -251,10 +251,10 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			}
 			
 			// Gesture
-			LinearLayout l1 = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
+			LinearLayout abc = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
 			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_answer);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(i));
-			l1.setOnTouchListener(new OnTouchListener() {
+			abc.setOnTouchListener(new OnTouchListener() {
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
 					gestureDetector.onTouchEvent(event);
