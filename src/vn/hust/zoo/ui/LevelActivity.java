@@ -34,7 +34,7 @@ public class LevelActivity extends Activity {
 	setContentView(R.layout.activity_level);
 	
 	// Init score
-	Score.init();
+	Score.init(this);
 
 	PageControl mPageControl = (PageControl) findViewById(R.id.page_control);
 	SwipeView mSwipeView = (SwipeView) findViewById(R.id.swipe_view);
@@ -143,6 +143,35 @@ public class LevelActivity extends Activity {
 
     public void onBack(View v) {
 	super.onBackPressed();
+    }
+    
+    @Override
+    protected void onResume() {
+	super.onResume();
+	int level = 0;
+	
+	for (int i = 0; i < 3; i++) {
+	    for (int j = 0; j < 9; j++) {
+		level = i * 9 + j;
+		switch (Score.getScore(level)) {
+		case 1:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star1);
+		    break;
+
+		case 2:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star2);
+		    break;
+
+		case 3:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star3);
+		    break;
+
+		default:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star0);
+		    break;
+		}
+	    }
+	}
     }
     
     private class SwipeImageLoader implements OnPageChangedListener {
