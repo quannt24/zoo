@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -51,7 +52,11 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	
 	public void onAnswer(View v){
 //		Log.d("Alphabet","" + ((Button)v).getText());
-		GameLogic.answer((Button)v);
+		if(GameLogic.answer((Button)v)){
+			Log.d("Result", "True");
+		}else{
+			Log.d("Result", "False");
+		}
 	}
 	
 	public void onDelete(View v){
