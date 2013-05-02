@@ -168,9 +168,10 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			super.onActivityCreated(savedInstanceState);
 			
 			// Gesture
+			LinearLayout l1 = (LinearLayout) mGameActivity.findViewById(R.id.swipe_question);
 			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_image);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(i));
-			i.setOnTouchListener(new OnTouchListener() {
+			l1.setOnTouchListener(new OnTouchListener() {
 		         @Override
 		            public boolean onTouch(View v, MotionEvent event) {
 		        	 	gestureDetector.onTouchEvent(event);
@@ -250,9 +251,10 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			}
 			
 			// Gesture
+			LinearLayout l1 = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
 			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_answer);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(i));
-			i.setOnTouchListener(new OnTouchListener() {
+			l1.setOnTouchListener(new OnTouchListener() {
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
 					gestureDetector.onTouchEvent(event);
