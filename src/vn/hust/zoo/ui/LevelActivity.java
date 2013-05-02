@@ -26,7 +26,7 @@ public class LevelActivity extends Activity {
 
     LinearLayout[] r = new LinearLayout[3];
     Button b[][] = new Button[3][9];
-    ImageView[][] imgScore = new ImageView[3][9];
+    ImageView[][] imgStar = new ImageView[3][9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +74,7 @@ public class LevelActivity extends Activity {
 	    TableRow mTableRow[] = new TableRow[6];
 	    
 	    LayoutParams buttonParams = new TableRow.LayoutParams();
-	    buttonParams.leftMargin = 20;
-	    buttonParams.rightMargin = 20;
-	    buttonParams.topMargin = 5;
-	    buttonParams.bottomMargin = 5;
+	    buttonParams.setMargins(20, 5, 20, 5);
 	    
 	    for (int j = 0; j < 6; j++) {
 		mTableRow[j] = new TableRow(this);
@@ -100,16 +97,31 @@ public class LevelActivity extends Activity {
 		});
 		
 		b[i][j].setBackgroundResource(R.drawable.button_level);
-		b[i][j].setTextSize(30); // TODO Relative size
+		b[i][j].setTextSize(20);
 		b[i][j].setTextColor(Color.WHITE);
 		b[i][j].setText(String.valueOf(level + 1));
 
-		imgScore[i][j] = new ImageView(this);
-		imgScore[i][j].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		imgScore[i][j].setBackgroundResource(R.drawable.star0); // TODO
-		
+		imgStar[i][j] = new ImageView(this);
+		imgStar[i][j].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		switch (Score.getScore(level)) {
+		case 1:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star1);
+		    break;
+
+		case 2:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star2);
+		    break;
+
+		case 3:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star3);
+		    break;
+
+		default:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star0);
+		    break;
+		}
 		mTableRow[j / 3 * 2].addView(b[i][j], buttonParams);
-		mTableRow[j / 3 * 2 + 1].addView(imgScore[i][j]);
+		mTableRow[j / 3 * 2 + 1].addView(imgStar[i][j], buttonParams);
 	    }
 
 	    for (int j = 0; j < 6; j++) {
