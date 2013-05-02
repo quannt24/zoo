@@ -11,6 +11,15 @@
         android:gravity="right" >
 
         <Button
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@drawable/ic_launcher"
+            android:onClick="onDelete" />
+
+        <Button
+            style="@style/AppTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|right"

@@ -7,7 +7,6 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
@@ -30,7 +29,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.game_question);
         setContentView(R.layout.activity_card_flip);
 
 		if (savedInstanceState == null) {
@@ -44,13 +42,16 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		getFragmentManager().addOnBackStackChangedListener(this);
 		
 		//TODO gameLogic
-		GameLogic.initCharactec();
+		GameLogic.initCharacter();
 	}
 	
 	public void onAnswer(View v){
-		Log.d("Alphabet","" + ((Button)v).getText());
-//		((Button)v).setText("C");
-		((Button) v).setVisibility(View.INVISIBLE);
+//		Log.d("Alphabet","" + ((Button)v).getText());
+		GameLogic.answer((Button)v);
+	}
+	
+	public void onDelete(View v){
+		GameLogic.delete();
 	}
 	
 	public void onSwitch(View v){
@@ -59,13 +60,12 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		case R.id.game_image:
 			//TODO switch to answer 
 			flipCard(); 
-			Log.d("Flip", "answer");
+//			Log.d("Flip", "answer");
 			break;
 		case R.id.game_answer:   
 			//TODO switch to next question
-//			mShowingBack = true;
 			flipCard(); 
-			Log.d("Flip", "question"); 
+//			Log.d("Flip", "question"); 
 			break;
 		}
 	}
@@ -80,6 +80,8 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		Object fragment;
 
 		mShowingBack = !mShowingBack; // track
+		
+		// Create card side
 		if(mShowingBack){
 			fragment = new CardBackFragment();
 			((CardBackFragment) fragment).set(this);
@@ -88,6 +90,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			((CardFrontFragment) fragment).set(this);
 		}
 
+		// Create animation flip card
 		if (GameActivity.direction == LEFT2RIGHT) {
 			getFragmentManager()
 					.beginTransaction()
@@ -127,12 +130,12 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 				GameActivity.direction = GameActivity.RIGHT2LEFT;
-				Log.d("Swing","Right2Left");
+//				Log.d("Swing","Right2Left");
 				i.performClick();
 			} else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 				GameActivity.direction = GameActivity.LEFT2RIGHT;
-				Log.d("Swing","Left2Right");
+//				Log.d("Swing","Left2Right");
 				i.performClick();
 			}
 			return true;
@@ -158,7 +161,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 
         @Override
 		public void onActivityCreated(Bundle savedInstanceState) {
-			// Auto-generated method stub
 			super.onActivityCreated(savedInstanceState);
 			
 			// Gesture
@@ -198,6 +200,9 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			super.onActivityCreated(savedInstanceState);
 			
 			//TODO answer screen setup
+
+			// prepare logic indicator
+			GameLogic.clear();
 			
 			// view
 			LinearLayout l = (LinearLayout) mGameActivity.findViewById(R.id.correct);
@@ -211,17 +216,22 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
 				
-				b.setText(GameLogic.getAnswer().get(i));
+//				b.setText(GameLogic.getAnswer().get(i));
+				b.setText(" ");
+
 				b.setBackgroundResource(R.drawable.button_character_empty);
 				b.setTypeface(t, Typeface.BOLD);
+				
+				if(!GameLogic.getAnswer().get(i).equals(" "))GameLogic.addPlayerAnswer(b);
+				else										 b.setVisibility(View.INVISIBLE);
 			}
-			
-			// correct white char
-			for(int i = 0; i < 6; i++){
+
+			// redundant char
+			for(int i = GameLogic.getAnswer().size(); i < 6; i++){
 				String button = "correct" + i;
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
-				if(b.getText().equals(" ") || b.getText().equals("")) l.removeView(b);
+				if(b.getText().equals("")) l.removeView(b);
 			}
 
 			// answer char 
