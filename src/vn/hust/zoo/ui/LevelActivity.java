@@ -5,9 +5,9 @@ import uk.co.jasonfry.android.tools.ui.SwipeView;
 import uk.co.jasonfry.android.tools.ui.SwipeView.OnPageChangedListener;
 import vn.hust.zoo.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,8 +86,9 @@ public class LevelActivity extends Activity {
 
 		    @Override
 		    public void onClick(View v) {
-			// TODO choose stage
-			Log.d("Button", "Press" + level);
+			Intent intent = new Intent(LevelActivity.this, GameActivity.class);
+			intent.putExtra("level", level);
+			startActivity(intent);
 		    }
 		});
 		
