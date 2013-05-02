@@ -4,6 +4,7 @@ import uk.co.jasonfry.android.tools.ui.PageControl;
 import uk.co.jasonfry.android.tools.ui.SwipeView;
 import uk.co.jasonfry.android.tools.ui.SwipeView.OnPageChangedListener;
 import vn.hust.zoo.R;
+import vn.hust.zoo.logic.Score;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -24,11 +26,15 @@ public class LevelActivity extends Activity {
 
     LinearLayout[] r = new LinearLayout[3];
     Button b[][] = new Button[3][9];
+    ImageView[][] imgStar = new ImageView[3][9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	setContentView(R.layout.activity_level);
+	
+	// Init score
+	Score.init(this);
 
 	PageControl mPageControl = (PageControl) findViewById(R.id.page_control);
 	SwipeView mSwipeView = (SwipeView) findViewById(R.id.swipe_view);
@@ -65,22 +71,20 @@ public class LevelActivity extends Activity {
 
 	for (int i = 0; i < 3; i++) {
 	    TableLayout mTableLayout = new TableLayout(this);
-	    TableRow mTableRow[] = new TableRow[3];
+	    TableRow mTableRow[] = new TableRow[6];
 	    
 	    LayoutParams buttonParams = new TableRow.LayoutParams();
-	    buttonParams.leftMargin = 15;
-	    buttonParams.rightMargin = 15;
-	    buttonParams.topMargin = 5;
-	    buttonParams.bottomMargin = 5;
+	    buttonParams.setMargins(20, 5, 20, 5);
 	    
+	    for (int j = 0; j < 6; j++) {
+		mTableRow[j] = new TableRow(this);
+		mTableRow[j].setGravity(Gravity.CENTER_HORIZONTAL);
+		mTableRow[j].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+	    }
 	    for (int j = 0; j < 9; j++) {
-		if (j % 3 == 0) {
-		    mTableRow[j / 3] = new TableRow(this);
-		    mTableRow[j / 3].setGravity(Gravity.CENTER_HORIZONTAL);
-		}
-		b[i][j] = new Button(this);
-
 		final int level = i * 9 + j;
+		
+		b[i][j] = new Button(this);
 
 		b[i][j].setOnClickListener(new View.OnClickListener() {
 
@@ -93,16 +97,36 @@ public class LevelActivity extends Activity {
 		});
 		
 		b[i][j].setBackgroundResource(R.drawable.button_level);
-		b[i][j].setTextSize(30); // TODO Relative size
+		b[i][j].setTextSize(20);
 		b[i][j].setTextColor(Color.WHITE);
 		b[i][j].setText(String.valueOf(level + 1));
 
-		mTableRow[j / 3].addView(b[i][j], buttonParams);
+		imgStar[i][j] = new ImageView(this);
+		imgStar[i][j].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		switch (Score.getScore(level)) {
+		case 1:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star1);
+		    break;
+
+		case 2:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star2);
+		    break;
+
+		case 3:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star3);
+		    break;
+
+		default:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star0);
+		    break;
+		}
+		mTableRow[j / 3 * 2].addView(b[i][j], buttonParams);
+		mTableRow[j / 3 * 2 + 1].addView(imgStar[i][j], buttonParams);
 	    }
 
-	    mTableLayout.addView(mTableRow[0]);
-	    mTableLayout.addView(mTableRow[1]);
-	    mTableLayout.addView(mTableRow[2]);
+	    for (int j = 0; j < 6; j++) {
+		mTableLayout.addView(mTableRow[j]);
+	    }
 
 	    r[i].addView(mTableLayout);
 	}
@@ -119,6 +143,35 @@ public class LevelActivity extends Activity {
 
     public void onBack(View v) {
 	super.onBackPressed();
+    }
+    
+    @Override
+    protected void onResume() {
+	super.onResume();
+	int level = 0;
+	
+	for (int i = 0; i < 3; i++) {
+	    for (int j = 0; j < 9; j++) {
+		level = i * 9 + j;
+		switch (Score.getScore(level)) {
+		case 1:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star1);
+		    break;
+
+		case 2:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star2);
+		    break;
+
+		case 3:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star3);
+		    break;
+
+		default:
+		    imgStar[i][j].setBackgroundResource(R.drawable.star0);
+		    break;
+		}
+	    }
+	}
     }
     
     private class SwipeImageLoader implements OnPageChangedListener {
