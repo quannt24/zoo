@@ -45,6 +45,10 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		GameLogic.initCharacter();
 	}
 	
+	public void onDeleteAnswer(View v){
+		GameLogic.deleteAnswer((Button) v);
+	}
+	
 	public void onAnswer(View v){
 //		Log.d("Alphabet","" + ((Button)v).getText());
 		GameLogic.answer((Button)v);

@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class GameLogic {
 	private static int level = 1;
-	private static String name  = "su tu";
+	private static String name  = "sutu";
 	
 	private static ArrayList<String> answer = new ArrayList<String>();
 	private static ArrayList<String> all = new ArrayList<String>();
@@ -68,6 +68,9 @@ public class GameLogic {
 	}
 	public static void delete(){
 		mIndicator.removeCharAnswerButton();
+	}
+	public static void deleteAnswer(Button b){
+		mIndicator.deleteAnswer(b);
 	}
 	public static void clear(){
 		mIndicator.clear();

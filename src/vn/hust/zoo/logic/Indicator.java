@@ -24,6 +24,17 @@ public class Indicator {
 		playerAnswer.get(charAnswer.size()).setText(" ");
 		b.setVisibility(View.VISIBLE);
 	}
+	public void deleteAnswer(Button b){
+		Button b1;
+		int i = charAnswer.size();
+		try{
+		do{
+			 b1 = playerAnswer.get(--i);
+			 removeCharAnswerButton();
+		}while(b1 != b);
+		}catch (Exception e) {
+		}
+	}
 	public void clear(){
 		charAnswer.clear();
 		playerAnswer.clear();
