@@ -110,10 +110,18 @@
             android:gravity="top|center"
             android:orientation="vertical" >
 
+            <Button
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_normal"
+                android:onClick="onNext"
+                android:visibility="invisible"/>
+            
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/answer" >
+                android:id="@+id/answerRow1" >
 
                 <Button
                     android:id="@+id/answer0"
@@ -154,7 +162,8 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:id="@+id/answerRow2">
 
                 <Button
                     android:id="@+id/answer4"

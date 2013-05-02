@@ -5,6 +5,7 @@ import vn.hust.zoo.logic.GameLogic;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,10 +55,23 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 //		Log.d("Alphabet","" + ((Button)v).getText());
 		if(GameLogic.answer((Button)v)){
 			Log.d("Result", "True");
+			((LinearLayout) findViewById(R.id.answerRow1)).setVisibility(View.INVISIBLE);
+			((LinearLayout) findViewById(R.id.answerRow2)).setVisibility(View.INVISIBLE);
+			((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
+			//GameLogic.clear();
+			((LinearLayout) findViewById(R.id.swipe_answer)).setOnTouchListener(null);
 		}else{
 			Log.d("Result", "False");
 		}
 	}
+	
+	public void onNext(View v){
+		Intent i = new Intent(this, GameActivity.class);
+//		getFragmentManager().popBackStackImmediate();
+		startActivity(i);
+		finish();
+	}
+	public void onLevel(View v){}
 	
 	public void onDelete(View v){
 		GameLogic.delete();
@@ -225,8 +239,9 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				String button = "correct" + i;
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
-				
+				if(b == null) Log.d("Error", "Game Activity");
 //				b.setText(GameLogic.getAnswer().get(i));
+				try{
 				b.setText(" ");
 
 				b.setBackgroundResource(R.drawable.button_character_empty);
@@ -234,6 +249,8 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				
 				if(!GameLogic.getAnswer().get(i).equals(" "))GameLogic.addPlayerAnswer(b);
 				else										 b.setVisibility(View.INVISIBLE);
+				}catch(Exception e){
+				}
 			}
 
 			// redundant char

@@ -28,6 +28,8 @@ public class GameLogic {
 	public static void initCharacter(){
 		String[] b = name.split("");
 		correctCharToGo = 0;
+		answer.clear();
+		all.clear();
 		
 		// TODO Not yet check if exceed total amount of 6 characters
 		for (String string : b) {
