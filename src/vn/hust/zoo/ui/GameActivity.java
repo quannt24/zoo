@@ -1,7 +1,10 @@
 package vn.hust.zoo.ui;
 
+import java.util.Random;
+
 import vn.hust.zoo.R;
 import vn.hust.zoo.logic.GameLogic;
+import vn.hust.zoo.logic.Score;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -58,8 +61,12 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			((LinearLayout) findViewById(R.id.answerRow1)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow2)).setVisibility(View.INVISIBLE);
 			((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
-			//GameLogic.clear();
+			//TODO GameLogic.clear();
 			((LinearLayout) findViewById(R.id.swipe_answer)).setOnTouchListener(null);
+			//TODO from 0
+			Score.setScore(1, 3);
+			Score.setScore(2, 1);
+			Score.setScore(3, 2);
 		}else{
 			Log.d("Result", "False");
 		}
