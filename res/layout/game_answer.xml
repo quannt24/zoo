@@ -60,9 +60,9 @@
                 android:id="@+id/game_name_acc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/button_normal"
-                android:layout_gravity="bottom|center_horizontal"
                 android:gravity="center"
                 android:text="@string/name_acc_0"
                 android:visibility="invisible" />
@@ -123,115 +123,130 @@
             </LinearLayout>
         </FrameLayout>
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_weight="4"
-            android:gravity="top|center"
-            android:orientation="vertical" >
-
-            <Button
-                android:id="@+id/next"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/button_next"
-                android:onClick="onNext"
-                android:visibility="invisible" />
-
-            <Button
-                android:id="@+id/menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_menu"
-                android:onClick="onMenuSelect"
-                android:visibility="invisible" />
+            android:layout_weight="4" >
 
             <LinearLayout
-                android:id="@+id/answerRow1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/answer0"
+                    android:id="@+id/next"
                     style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/button_next"
+                    android:onClick="onNext"
+                    android:visibility="invisible" />
 
                 <Button
-                    android:id="@+id/answer1"
+                    android:id="@+id/menu"
                     style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
-
-                <Button
-                    android:id="@+id/answer2"
-                    style="@style/AppTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
-
-                <Button
-                    android:id="@+id/answer3"
-                    style="@style/AppTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    android:background="@drawable/button_menu"
+                    android:onClick="onMenuSelect"
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/answerRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="top|center"
+                android:orientation="vertical" >
 
-                <Button
-                    android:id="@+id/answer4"
-                    style="@style/AppTheme"
+                <LinearLayout
+                    android:id="@+id/answerRow1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    android:layout_height="wrap_content" >
 
-                <Button
-                    android:id="@+id/answer5"
-                    style="@style/AppTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    <Button
+                        android:id="@+id/answer0"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
 
-                <Button
-                    android:id="@+id/answer6"
-                    style="@style/AppTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    <Button
+                        android:id="@+id/answer1"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
 
-                <Button
-                    android:id="@+id/answer7"
-                    style="@style/AppTheme"
+                    <Button
+                        android:id="@+id/answer2"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer3"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/answerRow2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginRight="10dp"
-                    android:onClick="onAnswer" />
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/answer4"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer5"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer6"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer7"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"

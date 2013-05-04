@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -92,28 +93,44 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	}
 	
 	public void onNext(View v){
-		Intent i = new Intent(this, GameActivity.class);
-		i.putExtra("level", GameLogic.getLevel() + 1);
-		startActivity(i);
-		finish();
+		if(v.getId() == R.id.next) v.setBackgroundResource(R.drawable.button_next_pressed);
+		Handler h = new Handler();
+		h.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(GameActivity.this, GameActivity.class);
+				i.putExtra("level", GameLogic.getLevel() + 1);
+				startActivity(i);
+				finish();
+			}
+		},1200);
 	}
 	
 	public void onMenuSelect(View v){
-		Intent i = new Intent(this, LevelActivity.class);
-		startActivity(i);
-		finish();
+		if(v.getId() == R.id.menu) v.setBackgroundResource(R.drawable.button_menu_pressed);
+		Handler h = new Handler();
+		h.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(GameActivity.this, LevelActivity.class);
+				startActivity(i);
+				finish();
+			}
+		},1200);
 	}
 	
 	public void onSwitch(View v){
 		switch(v.getId()){
 		case R.id.game_question: 
 		case R.id.game_image:
-			//TODO switch to answer 
+			// switch to answer 
 			flipCard(); 
 //			Log.d("Flip", "answer");
 			break;
 		case R.id.game_answer:   
-			//TODO switch to next question
+			// switch to question
 			flipCard(); 
 //			Log.d("Flip", "question"); 
 			break;
@@ -257,7 +274,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			// Auto-generated method stub
 			super.onActivityCreated(savedInstanceState);
 			
-			// TODO answer screen setup
+			// answer screen setup
 			
 			// prepare logic indicator
 			GameLogic.clear();
