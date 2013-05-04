@@ -1,14 +1,12 @@
 package vn.hust.zoo.ui;
 
-import java.util.Random;
-
 import vn.hust.zoo.R;
 import vn.hust.zoo.logic.GameLogic;
-import vn.hust.zoo.logic.Score;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,12 +20,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class GameActivity extends Activity  implements FragmentManager.OnBackStackChangedListener {
 	public static int RIGHT2LEFT = 0;
 	public static int LEFT2RIGHT = 1;
 	
-	public static int direction = RIGHT2LEFT;
+	public int direction = RIGHT2LEFT;
 
     private boolean mShowingBack = false;
     
@@ -46,42 +45,63 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 
 		getFragmentManager().addOnBackStackChangedListener(this);
 		
-		//TODO gameLogic
+		// setup gameLogic properties
+		Intent i = getIntent();
+		int level = i.getIntExtra("level", 0);
+		GameLogic.initLevel(this, level);
 		GameLogic.initCharacter();
 	}
 	
 	public void onDeleteAnswer(View v){
 		GameLogic.deleteAnswer((Button) v);
+		((ImageView) findViewById(R.id.result_false)).setVisibility(View.INVISIBLE);
 	}
 	
 	public void onAnswer(View v){
 //		Log.d("Alphabet","" + ((Button)v).getText());
 		if(GameLogic.answer((Button)v)){
 			Log.d("Result", "True");
+			
+			GameLogic.displayAnimalNameAcc();
+			
+			Typeface t = Typeface.createFromAsset(getAssets(), "fonts/mcfont.ttf");
+			TextView n = (TextView) findViewById(R.id.game_name_acc);
+			n.setTypeface(t, Typeface.BOLD);
+			n.setTextSize(30);
+			n.setTextColor(Color.GREEN);
+			n.setText(GameLogic.getNameAcc());
+			n.setVisibility(View.VISIBLE);
+			
 			((LinearLayout) findViewById(R.id.answerRow1)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow2)).setVisibility(View.INVISIBLE);
-			((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
-			//TODO GameLogic.clear();
+			((ImageView) findViewById(R.id.result_true)).setVisibility(View.VISIBLE);
+			
 			((LinearLayout) findViewById(R.id.swipe_answer)).setOnTouchListener(null);
+			
+			if(GameLogic.getLevel() < 27) ((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
+			((Button) findViewById(R.id.menu)).setVisibility(View.VISIBLE);
+			
 			//TODO from 0
-			Score.setScore(1, 3);
-			Score.setScore(2, 1);
-			Score.setScore(3, 2);
+//			Score.setScore(1, 3);
+//			Score.setScore(2, 1);
+//			Score.setScore(3, 2);
 		}else{
 			Log.d("Result", "False");
+			if(GameLogic.isAnswerFullOfChar()) ((ImageView) findViewById(R.id.result_false)).setVisibility(View.VISIBLE);
 		}
 	}
 	
 	public void onNext(View v){
 		Intent i = new Intent(this, GameActivity.class);
-//		getFragmentManager().popBackStackImmediate();
+		i.putExtra("level", GameLogic.getLevel() + 1);
 		startActivity(i);
 		finish();
 	}
-	public void onLevel(View v){}
 	
-	public void onDelete(View v){
-		GameLogic.delete();
+	public void onMenuSelect(View v){
+		Intent i = new Intent(this, LevelActivity.class);
+		startActivity(i);
+		finish();
 	}
 	
 	public void onSwitch(View v){
@@ -109,6 +129,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 //        mShowingBack = true;
 		Object fragment;
 
+		getFragmentManager().popBackStackImmediate();
 		mShowingBack = !mShowingBack; // track
 		
 		// Create card side
@@ -121,7 +142,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		}
 
 		// Create animation flip card
-		if (GameActivity.direction == LEFT2RIGHT) {
+		if (direction == LEFT2RIGHT) {
 			getFragmentManager()
 					.beginTransaction()
 					.setCustomAnimations(R.animator.card_flip_left_in,
@@ -129,7 +150,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 							R.animator.card_flip_right_in,
 							R.animator.card_flip_right_out) 
 					.replace(R.id.container, (Fragment) fragment).commit();
-		} else if (GameActivity.direction == RIGHT2LEFT) {
+		} else if (direction == RIGHT2LEFT) {
 			getFragmentManager()
 					.beginTransaction()
 					.setCustomAnimations(R.animator.card_flip_right_in,
@@ -150,21 +171,23 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
     	private static int SWIPE_THRESHOLD_VELOCITY = 10;
     	
     	private ImageView i;
+    	private GameActivity mActivity;
     	
-    	public SwingGestureDetection(ImageView i){
+    	public SwingGestureDetection(GameActivity mActivity, ImageView i){
     		this.i = i;
+    		this.mActivity = mActivity;
     	}
     	
 		@Override
 		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,float velocityY) {
 			if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-				GameActivity.direction = GameActivity.RIGHT2LEFT;
+				mActivity.direction = GameActivity.RIGHT2LEFT;
 //				Log.d("Swing","Right2Left");
 				i.performClick();
 			} else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-				GameActivity.direction = GameActivity.LEFT2RIGHT;
+				mActivity.direction = GameActivity.LEFT2RIGHT;
 //				Log.d("Swing","Left2Right");
 				i.performClick();
 			}
@@ -193,10 +216,14 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		public void onActivityCreated(Bundle savedInstanceState) {
 			super.onActivityCreated(savedInstanceState);
 			
+			// setup image
+			((ImageView) mGameActivity.findViewById(R.id.game_image)).setBackgroundResource(GameLogic.getImageID());
+						
+			
 			// Gesture
 			LinearLayout l1 = (LinearLayout) mGameActivity.findViewById(R.id.swipe_question);
 			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_image);
-			gestureDetector = new GestureDetector(new SwingGestureDetection(i));
+			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, i));
 			l1.setOnTouchListener(new OnTouchListener() {
 		         @Override
 		            public boolean onTouch(View v, MotionEvent event) {
@@ -230,11 +257,11 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			// Auto-generated method stub
 			super.onActivityCreated(savedInstanceState);
 			
-			//TODO answer screen setup
-
+			// TODO answer screen setup
+			
 			// prepare logic indicator
 			GameLogic.clear();
-			
+
 			// view
 			LinearLayout l = (LinearLayout) mGameActivity.findViewById(R.id.correct);
 			
@@ -247,7 +274,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				int buttonID = getResources().getIdentifier(button, "id", mGameActivity.getPackageName());
 				Button b = (Button) mGameActivity.findViewById(buttonID);
 				if(b == null) Log.d("Error", "Game Activity");
-//				b.setText(GameLogic.getAnswer().get(i));
+				//  b.setText(GameLogic.getAnswer().get(i));
 				try{
 				b.setText(" ");
 
@@ -282,7 +309,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			// Gesture
 			LinearLayout abc = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
 			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_answer);
-			gestureDetector = new GestureDetector(new SwingGestureDetection(i));
+			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, i));
 			abc.setOnTouchListener(new OnTouchListener() {
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {

@@ -16,7 +16,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/image_0"
             android:contentDescription="@string/app_name"
             android:onClick="onSwitch" />
     </LinearLayout>
@@ -41,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|right"
-            android:background="@drawable/ic_launcher" />
+            android:background="@drawable/button_level_select"
+            android:onClick="onMenuSelect" />
     </LinearLayout>
 
 </FrameLayout>

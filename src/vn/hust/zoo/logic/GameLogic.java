@@ -4,12 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import android.app.Activity;
 import android.util.Log;
 import android.widget.Button;
 
 public class GameLogic {
 	private static int level = 1;
-	private static String name  = "sutu";
+	
+	private static String animalName;
+	private static String animalNameAcc;
+	private static int animalImgID;
 	
 	private static ArrayList<String> answer = new ArrayList<String>();
 	private static ArrayList<String> all = new ArrayList<String>();
@@ -19,19 +23,21 @@ public class GameLogic {
 	
 	private static int correctCharToGo;
 	
-	//TODO set correct Name + Level
-	public void setName(int level){
+	// set correct Name + Level
+	public static void initLevel(Activity mActivity, int level){
+		Log.d("Level","" + level);
 		GameLogic.level = level;
-		GameLogic.name = "cho";
+		GameLogic.animalImgID = mActivity.getResources().getIdentifier("image_" + level, "drawable", mActivity.getPackageName());
+		GameLogic.animalName = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_" + level, "string", mActivity.getPackageName()));
+		GameLogic.animalNameAcc = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_acc_" + level, "string", mActivity.getPackageName()));
 	}
 	
 	public static void initCharacter(){
-		String[] b = name.split("");
+		String[] b = animalName.split("");
 		correctCharToGo = 0;
 		answer.clear();
 		all.clear();
 		
-		// TODO Not yet check if exceed total amount of 6 characters
 		for (String string : b) {
 			answer.add(string);
 			if(!string.equals(" ") && !string.equals("")) {
@@ -46,9 +52,7 @@ public class GameLogic {
 			all.add(c);
 		}
 		
-		Log.d("Choice","" + all.size());
-		for(int i = 0; i < all.size(); i++)
-			Log.d("Choice","" + all.get(i));
+		Log.d("Answer choice","" + all.size());
 		
 		Collections.shuffle(all);
 	}
@@ -62,8 +66,12 @@ public class GameLogic {
 			if(!answer.get(i).equals((((Button)mIndicator.getCharAnswer().get(i)).getText()))) return false;
 		return true;
 	}
+	public static boolean isAnswerFullOfChar(){
+		return mIndicator.getCharAnswer().size() >= correctCharToGo;
+	}
 	public static boolean answer(Button b){
-		if(mIndicator.getCharAnswer().size() == correctCharToGo) return false; //TODO full char
+		// full char
+		if(isAnswerFullOfChar()) return false; 
 		mIndicator.addCharAnswerButton(b);
 		Log.d("Answer","" + b.getText());
 		return compare();
@@ -77,9 +85,13 @@ public class GameLogic {
 	public static void clear(){
 		mIndicator.clear();
 	}
+	public static void displayAnimalNameAcc(){
+		mIndicator.hide();
+	}
 	
 	public static ArrayList<String> getAnswer(){return GameLogic.answer;}
 	public static ArrayList<String> getAll(){return GameLogic.all;}
 	public static int getLevel(){return GameLogic.level;}
-	
+	public static int getImageID(){return GameLogic.animalImgID;}
+	public static String getNameAcc(){return GameLogic.animalNameAcc;}
 }

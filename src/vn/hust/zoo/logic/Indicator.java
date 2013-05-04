@@ -39,6 +39,11 @@ public class Indicator {
 		charAnswer.clear();
 		playerAnswer.clear();
 	}
+	public void hide(){
+		for(Button b : playerAnswer){
+			b.setVisibility(View.INVISIBLE);
+		}
+	}
 	
 	public Stack<Button> getCharAnswer(){return charAnswer;}
 }

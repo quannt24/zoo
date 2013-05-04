@@ -2,26 +2,69 @@
 <resources>
 
     <string name="app_name">Flash Card</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="author">QuanL, QuanNT, HoangTN, VanND</string>
     <string name="confirm">Exit ?</string>
     <string name="menu_confirm">Do you want to quit this game ?</string>
-
-    <string-array name="animal_name">
-        <item>chó</item>
-        <item>mèo</item>
-        <item>ngựa</item>
-        <item>bò</item>
-        <item>khỉ</item>
-        <item>chuột</item>
-        <item>lợn</item>
-        <item>thỏ</item>
-        <item>cừu</item>
-        <item>hổ</item>
-    </string-array>
-
     <string name="title_activity_level">LevelActivity</string>
     <string name="action_settings">Settings</string>
+
+    <!-- non-accent -->
+    <string name="name_0">cho</string>
+    <string name="name_1">meo</string>
+    <string name="name_2">ngua</string>
+    <string name="name_3">bosua</string>
+    <string name="name_4">khi</string>
+    <string name="name_5">chuot</string>
+    <string name="name_6">lon</string>
+    <string name="name_7">tho</string>
+    <string name="name_8">cuu</string>
+    <string name="name_9">ho</string>
+    <string name="name_10">ran</string>
+    <string name="name_11">ga</string>
+    <string name="name_12">trau</string>
+    <string name="name_13">lorem</string>
+    <string name="name_14">bao</string>
+    <string name="name_15">sutu</string>
+    <string name="name_16">tegiac</string>
+    <string name="name_17">hama</string>
+    <string name="name_18">nhim</string>
+    <string name="name_19">voi</string>
+    <string name="name_20">chosoi</string>
+    <string name="name_21">cao</string>
+    <string name="name_22">bocau</string>
+    <string name="name_23">lorem</string>
+    <string name="name_24">lorem</string>
+    <string name="name_25">lacda</string>
+    <string name="name_26">lorem</string>
+
+    <!-- accent -->
+    <string name="name_acc_0">chó</string>
+    <string name="name_acc_1">mèo</string>
+    <string name="name_acc_2">ngựa</string>
+    <string name="name_acc_3">bò sữa</string>
+    <string name="name_acc_4">khỉ</string>
+    <string name="name_acc_5">chuột</string>
+    <string name="name_acc_6">lợn</string>
+    <string name="name_acc_7">thỏ</string>
+    <string name="name_acc_8">cừu</string>
+    <string name="name_acc_9">hổ</string>
+    <string name="name_acc_10">rắn</string>
+    <string name="name_acc_11">gà</string>
+    <string name="name_acc_12">trâu</string>
+    <string name="name_acc_13">lorem</string>
+    <string name="name_acc_14">báo</string>
+    <string name="name_acc_15">sư tử</string>
+    <string name="name_acc_16">tê giác</string>
+    <string name="name_acc_17">hà mã</string>
+    <string name="name_acc_18">nhím</string>
+    <string name="name_acc_19">voi</string>
+    <string name="name_acc_20">chó sói</string>
+    <string name="name_acc_21">cáo</string>
+    <string name="name_acc_22">bồ câu</string>
+    <string name="name_acc_23">lorem</string>
+    <string name="name_acc_24">lorem</string>
+    <string name="name_acc_25">lạc đà</string>
+    <string name="name_acc_26">lorem</string>
 
 </resources>
