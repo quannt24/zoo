@@ -2,6 +2,7 @@ package vn.hust.zoo.ui;
 
 import vn.hust.zoo.R;
 import vn.hust.zoo.logic.GameLogic;
+import vn.hust.zoo.logic.Score;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -30,11 +31,14 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	public int direction = LEFT2RIGHT;
 
     private boolean mShowingBack = false;
+	public static Typeface t;
+
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_flip);
+		if(null == t) t = Typeface.createFromAsset(getAssets(), "fonts/mcfont.ttf");
 
 		if (savedInstanceState == null) {
 			CardFrontFragment c = new CardFrontFragment();
@@ -65,31 +69,48 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			
 			GameLogic.displayAnimalNameAcc();
 			
-			Typeface t = Typeface.createFromAsset(getAssets(), "fonts/mcfont.ttf");
 			TextView n = (TextView) findViewById(R.id.game_name_acc);
-			n.setTypeface(t, Typeface.BOLD);
-			n.setTextSize(30);
-			n.setTextColor(Color.GREEN);
+			n.setTypeface(GameActivity.t);
 			n.setText(GameLogic.getNameAcc());
 			n.setVisibility(View.VISIBLE);
 			
+			((TextView) findViewById(R.id.game_hint)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow1)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow2)).setVisibility(View.INVISIBLE);
+			
 			((ImageView) findViewById(R.id.result_true)).setVisibility(View.VISIBLE);
 			
+			((ImageView) findViewById(R.id.game_star)).setVisibility(View.VISIBLE);
+			((ImageView) findViewById(R.id.game_star)).setBackgroundResource(GameLogic.getStar());
+
 			((LinearLayout) findViewById(R.id.swipe_answer)).setOnTouchListener(null);
 			
-			if(GameLogic.getLevel() < 27) ((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
+			((Button) findViewById(R.id.replay)).setVisibility(View.VISIBLE);
+			((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
 			((Button) findViewById(R.id.menu)).setVisibility(View.VISIBLE);
 			
-			//TODO from 0
-//			Score.setScore(1, 3);
-//			Score.setScore(2, 1);
-//			Score.setScore(3, 2);
+			int score = Score.getScore(GameLogic.getLevel());
+			if(score < 3)Score.setScore(GameLogic.getLevel(), score+1);
+			
 		}else{
 			Log.d("Result", "False");
 			if(GameLogic.isAnswerFullOfChar()) ((ImageView) findViewById(R.id.result_false)).setVisibility(View.VISIBLE);
 		}
+	}
+	
+	public void onReplay(View v){
+		if(v.getId() == R.id.replay) v.setBackgroundResource(R.drawable.button_next_pressed);
+		Handler h = new Handler();
+		h.postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent i = new Intent(GameActivity.this, GameActivity.class);
+				if(GameLogic.getLevel() == 26)  i.putExtra("level", 0);
+				else							i.putExtra("level", GameLogic.getLevel());
+				startActivity(i);
+				finish();
+			}
+		},800);
 	}
 	
 	public void onNext(View v){
@@ -99,7 +120,8 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			@Override
 			public void run() {
 				Intent i = new Intent(GameActivity.this, GameActivity.class);
-				i.putExtra("level", GameLogic.getLevel() + 1);
+				if(GameLogic.getLevel() == 26)  i.putExtra("level", 0);
+				else							i.putExtra("level", GameLogic.getLevel() + 1);
 				startActivity(i);
 				finish();
 			}
@@ -108,6 +130,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	
 	public void onMenuSelect(View v){
 		if(v.getId() == R.id.menu) v.setBackgroundResource(R.drawable.button_menu_pressed);
+		if(v.getId() == R.id.game_question || v.getId() == R.id.game_level_select) v.setBackgroundResource(R.drawable.button_level_select_pressed80);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			@Override
@@ -273,7 +296,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			LinearLayout l = (LinearLayout) mGameActivity.findViewById(R.id.correct);
 			
 			// font
-			Typeface t = Typeface.createFromAsset(mGameActivity.getAssets(), "fonts/mcfont.ttf");
 			
 			// correct non-white-char answer
 			for(int i = 0; i < GameLogic.getAnswer().size(); i++){
@@ -310,14 +332,19 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				b.setText(GameLogic.getAll().get(i));
 				
 				b.setBackgroundResource(R.drawable.button_character_empty);
-				b.setTypeface(t, Typeface.BOLD);
+				b.setTypeface(GameActivity.t, Typeface.BOLD);
 			}
 			
+			// Hint
+			TextView t = (TextView) mGameActivity.findViewById(R.id.game_hint);
+			t.setText("" + GameLogic.getHint());
+			t.setTextColor(Color.BLUE);
+			t.setTextSize(20);
+			t.setTypeface(GameActivity.t, Typeface.BOLD_ITALIC);
+			
 			// Gesture
-			LinearLayout abc = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
-			Button i = (Button) mGameActivity.findViewById(R.id.swipe2);
-			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, i));
-			abc.setOnTouchListener(new OnTouchListener() {
+			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, (Button) mGameActivity.findViewById(R.id.swipe2)));
+			((LinearLayout) mGameActivity.findViewById(R.id.swipe_answer)).setOnTouchListener(new OnTouchListener() {
 				@Override
 				public boolean onTouch(View v, MotionEvent event) {
 					gestureDetector.onTouchEvent(event);

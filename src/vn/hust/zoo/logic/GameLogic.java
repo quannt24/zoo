@@ -13,7 +13,9 @@ public class GameLogic {
 	
 	private static String animalName;
 	private static String animalNameAcc;
+	private static String animalHint;
 	private static int animalImgID;
+	private static int gameWinStar;
 	
 	private static ArrayList<String> answer = new ArrayList<String>();
 	private static ArrayList<String> all = new ArrayList<String>();
@@ -30,6 +32,15 @@ public class GameLogic {
 		GameLogic.animalImgID = mActivity.getResources().getIdentifier("image_" + level, "drawable", mActivity.getPackageName());
 		GameLogic.animalName = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_" + level, "string", mActivity.getPackageName()));
 		GameLogic.animalNameAcc = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_acc_" + level, "string", mActivity.getPackageName()));
+	
+		int score = Score.getScore(level);
+		if(score < 3){
+			GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_" + (score + 1) + "_big", "drawable", mActivity.getPackageName());
+			GameLogic.animalHint = mActivity.getResources().getString(mActivity.getResources().getIdentifier("hint_" + level + "_" + score, "string", mActivity.getPackageName()));
+		}else{
+			GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_3_big", "drawable", mActivity.getPackageName());
+			GameLogic.animalHint = mActivity.getResources().getString(mActivity.getResources().getIdentifier("hint_" + level + "_" + (new Random()).nextInt(3), "string", mActivity.getPackageName()));
+		}
 	}
 	
 	public static void initCharacter(){
@@ -94,4 +105,6 @@ public class GameLogic {
 	public static int getLevel(){return GameLogic.level;}
 	public static int getImageID(){return GameLogic.animalImgID;}
 	public static String getNameAcc(){return GameLogic.animalNameAcc;}
+	public static String getHint(){return GameLogic.animalHint;}
+	public static int getStar(){return GameLogic.gameWinStar;}
 }

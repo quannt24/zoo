@@ -23,7 +23,7 @@
     <string name="name_10">ran</string>
     <string name="name_11">ga</string>
     <string name="name_12">trau</string>
-    <string name="name_13">lorem</string>
+    <string name="name_13">soc</string>
     <string name="name_14">bao</string>
     <string name="name_15">sutu</string>
     <string name="name_16">tegiac</string>
@@ -33,10 +33,10 @@
     <string name="name_20">chosoi</string>
     <string name="name_21">cao</string>
     <string name="name_22">bocau</string>
-    <string name="name_23">lorem</string>
-    <string name="name_24">lorem</string>
+    <string name="name_23">casau</string>
+    <string name="name_24">gau</string>
     <string name="name_25">lacda</string>
-    <string name="name_26">lorem</string>
+    <string name="name_26">hai au</string>
 
     <!-- accent -->
     <string name="name_acc_0">chó</string>
@@ -52,7 +52,7 @@
     <string name="name_acc_10">rắn</string>
     <string name="name_acc_11">gà</string>
     <string name="name_acc_12">trâu</string>
-    <string name="name_acc_13">lorem</string>
+    <string name="name_acc_13">sóc</string>
     <string name="name_acc_14">báo</string>
     <string name="name_acc_15">sư tử</string>
     <string name="name_acc_16">tê giác</string>
@@ -62,9 +62,35 @@
     <string name="name_acc_20">chó sói</string>
     <string name="name_acc_21">cáo</string>
     <string name="name_acc_22">bồ câu</string>
-    <string name="name_acc_23">lorem</string>
-    <string name="name_acc_24">lorem</string>
+    <string name="name_acc_23">cá sấu</string>
+    <string name="name_acc_24">gấu</string>
     <string name="name_acc_25">lạc đà</string>
-    <string name="name_acc_26">lorem</string>
+    <string name="name_acc_26">hải âu</string>
+
+    <!-- hint -->
+    <string name="hint_0_0">Gợi ý 1: con vật này nuôi để giữ nhà</string>
+    <string name="hint_0_1">Gợi ý 2: con vật này thích gặm xương</string>
+    <string name="hint_0_2">Gợi ý 3: con vật này hay được gọi là Mực, Vàng</string>
+    <string name="hint_1_0">Gợi ý 1: con vật này thích bắt chuột</string>
+    <string name="hint_1_1">Gợi ý 2: con vật này thích ăn cá</string>
+    <string name="hint_1_2">Gợi ý 3: nhân vật chính, màu xanh trong Tom và Jerry</string>
+    <string name="hint_2_0">Gợi ý 1: con vật này chạy rất nhanh</string>
+    <string name="hint_2_1">Gợi ý 2: con vật trong thành ngữ "một con .... đau, cả tàu bỏ cỏ"</string>
+    <string name="hint_2_2">Gợi ý 3: con vật này hay dùng để kéo xe</string>
+    <string name="hint_3_0">Gợi ý 1: con vật này cho sữa</string>
+    <string name="hint_3_1">Gợi ý 2: con vật này thích ăn cỏ</string>
+    <string name="hint_3_2">Gợi ý 3: con vật trong quảng cáo sữa của VinaMilk</string>
+    <string name="hint_4_0">Gợi ý 1: con vật này hay leo trèo</string>
+    <string name="hint_4_1">Gợi ý 2: Tôn Ngộ Không là loài vậy này</string>
+    <string name="hint_4_2">Gợi ý 3: con vật này thích ăn chuối</string>
+    <string name="hint_5_0">Gợi ý 1: con vật này là loài gặm nhấm</string>
+    <string name="hint_5_1">Gợi ý 2: con vật này kêu "Chít Chít"</string>
+    <string name="hint_5_2">Gợi ý 3: con vật này cùng họ với sóc, nhím và Hamster</string>
+    <string name="hint_6_0">Gợi ý 1: con vật này sống trong chuồng</string>
+    <string name="hint_6_1">Gợi ý 2: con vật này kêu "Éc Éc"</string>
+    <string name="hint_6_2">Gợi ý 3: Trư Bát Giới là loài vật này</string>
+    <string name="hint_7_0">Gợi ý 1: nhân vật chính phim hoạt hình "Nu, pogodi !" (hãy đợi đấy)</string>
+    <string name="hint_7_1">Gợi ý 2: con vật này rất thích ăn carrot </string>
+    <string name="hint_7_2">Gợi ý 3: Bunny trong phim hoạt hình là loài vật này</string>
 
 </resources>
