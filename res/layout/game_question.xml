@@ -6,9 +6,9 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/swipe_question"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/swipe_question"
         android:gravity="center_vertical|center_horizontal" >
 
         <ImageView
@@ -16,8 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:contentDescription="@string/app_name"
-            android:onClick="onSwitch" />
+            android:contentDescription="@string/app_name" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,5 +42,13 @@
             android:background="@drawable/button_level_select"
             android:onClick="onMenuSelect" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/swipe1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onSwitch"
+        android:visibility="invisible" />
 
 </FrameLayout>

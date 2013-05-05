@@ -27,7 +27,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	public static int RIGHT2LEFT = 0;
 	public static int LEFT2RIGHT = 1;
 	
-	public int direction = RIGHT2LEFT;
+	public int direction = LEFT2RIGHT;
 
     private boolean mShowingBack = false;
     
@@ -98,13 +98,12 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		h.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				Intent i = new Intent(GameActivity.this, GameActivity.class);
 				i.putExtra("level", GameLogic.getLevel() + 1);
 				startActivity(i);
 				finish();
 			}
-		},1200);
+		},800);
 	}
 	
 	public void onMenuSelect(View v){
@@ -113,26 +112,18 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		h.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				Intent i = new Intent(GameActivity.this, LevelActivity.class);
 				startActivity(i);
 				finish();
 			}
-		},1200);
+		},800);
 	}
 	
 	public void onSwitch(View v){
 		switch(v.getId()){
-		case R.id.game_question: 
-		case R.id.game_image:
-			// switch to answer 
+		case R.id.swipe1:
+		case R.id.swipe2:
 			flipCard(); 
-//			Log.d("Flip", "answer");
-			break;
-		case R.id.game_answer:   
-			// switch to question
-			flipCard(); 
-//			Log.d("Flip", "question"); 
 			break;
 		}
 	}
@@ -146,7 +137,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 //        mShowingBack = true;
 		Object fragment;
 
-		getFragmentManager().popBackStackImmediate();
+//		getFragmentManager().popBackStackImmediate();
 		mShowingBack = !mShowingBack; // track
 		
 		// Create card side
@@ -164,16 +155,16 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 					.beginTransaction()
 					.setCustomAnimations(R.animator.card_flip_left_in,
 							R.animator.card_flip_left_out,
-							R.animator.card_flip_right_in,
-							R.animator.card_flip_right_out) 
+							0,
+							0) 
 					.replace(R.id.container, (Fragment) fragment).commit();
 		} else if (direction == RIGHT2LEFT) {
 			getFragmentManager()
 					.beginTransaction()
 					.setCustomAnimations(R.animator.card_flip_right_in,
 							R.animator.card_flip_right_out,
-							R.animator.card_flip_left_in,
-							R.animator.card_flip_left_out) 
+							0,
+							0) 
 					.replace(R.id.container, (Fragment) fragment).commit();
 		}
     }
@@ -187,10 +178,10 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
     	private static int SWIPE_MIN_DISTANCE = 70;
     	private static int SWIPE_THRESHOLD_VELOCITY = 10;
     	
-    	private ImageView i;
+    	private Button i;
     	private GameActivity mActivity;
     	
-    	public SwingGestureDetection(GameActivity mActivity, ImageView i){
+    	public SwingGestureDetection(GameActivity mActivity, Button i){
     		this.i = i;
     		this.mActivity = mActivity;
     	}
@@ -200,12 +191,12 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 				mActivity.direction = GameActivity.RIGHT2LEFT;
-//				Log.d("Swing","Right2Left");
+				Log.d("Swing","Right2Left");
 				i.performClick();
 			} else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE
 					&& Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
 				mActivity.direction = GameActivity.LEFT2RIGHT;
-//				Log.d("Swing","Left2Right");
+				Log.d("Swing","Left2Right");
 				i.performClick();
 			}
 			return true;
@@ -239,7 +230,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			
 			// Gesture
 			LinearLayout l1 = (LinearLayout) mGameActivity.findViewById(R.id.swipe_question);
-			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_image);
+			Button i = (Button) mGameActivity.findViewById(R.id.swipe1);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, i));
 			l1.setOnTouchListener(new OnTouchListener() {
 		         @Override
@@ -271,7 +262,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
         
         @Override
 		public void onActivityCreated(Bundle savedInstanceState) {
-			// Auto-generated method stub
 			super.onActivityCreated(savedInstanceState);
 			
 			// answer screen setup
@@ -325,7 +315,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			
 			// Gesture
 			LinearLayout abc = (LinearLayout) mGameActivity.findViewById(R.id.swipe_answer);
-			ImageView i = (ImageView) mGameActivity.findViewById(R.id.game_answer);
+			Button i = (Button) mGameActivity.findViewById(R.id.swipe2);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, i));
 			abc.setOnTouchListener(new OnTouchListener() {
 				@Override

@@ -247,22 +247,13 @@
                 </LinearLayout>
             </LinearLayout>
         </FrameLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="top|center" >
-
-            <ImageView
-                android:id="@+id/game_answer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_normal"
-                android:contentDescription="@string/app_name"
-                android:onClick="onSwitch"
-                android:visibility="invisible" />
-        </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/swipe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSwitch"
+        android:visibility="invisible" />
 
 </FrameLayout>
