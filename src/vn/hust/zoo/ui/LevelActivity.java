@@ -62,7 +62,7 @@ public class LevelActivity extends Activity {
 	    mSwipeView.addView(frame);
 	}
 
-	// TODO set up each screen
+	// set up each screen
 	for (int i = 0; i < 3; i++) {
 	    r[i] = new LinearLayout(this);
 	    r[i].setGravity(Gravity.CENTER);
@@ -74,7 +74,10 @@ public class LevelActivity extends Activity {
 	    TableRow mTableRow[] = new TableRow[6];
 	    
 	    LayoutParams buttonParams = new TableRow.LayoutParams();
-	    buttonParams.setMargins(20, 5, 20, 5);
+	    buttonParams.setMargins(30, 5, 30, 5);
+	    
+	    LayoutParams buttonParams2 = new TableRow.LayoutParams();
+	    buttonParams2.setMargins(30, 5, 30, 25);
 	    
 	    for (int j = 0; j < 6; j++) {
 		mTableRow[j] = new TableRow(this);
@@ -122,7 +125,7 @@ public class LevelActivity extends Activity {
 		    break;
 		}
 		mTableRow[j / 3 * 2].addView(b[i][j], buttonParams);
-		mTableRow[j / 3 * 2 + 1].addView(imgStar[i][j], buttonParams);
+		mTableRow[j / 3 * 2 + 1].addView(imgStar[i][j], buttonParams2);
 	    }
 
 	    for (int j = 0; j < 6; j++) {
@@ -135,7 +138,7 @@ public class LevelActivity extends Activity {
 	((ViewGroup) mSwipeView.getChildContainer().getChildAt(0)).addView(r[0]);
 	((ViewGroup) mSwipeView.getChildContainer().getChildAt(1)).addView(r[1]);
 	((ViewGroup) mSwipeView.getChildContainer().getChildAt(2)).addView(r[2]);
-
+	
 	SwipeImageLoader mSwipeImageLoader = new SwipeImageLoader();
 
 	mSwipeView.setOnPageChangedListener(mSwipeImageLoader);

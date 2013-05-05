@@ -151,15 +151,8 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	}
 	
 	public void flipCard() {
-//        if (mShowingBack) {
-//            getFragmentManager().popBackStack();
-//            return;
-//        }
-//
-//        mShowingBack = true;
 		Object fragment;
 
-//		getFragmentManager().popBackStackImmediate();
 		mShowingBack = !mShowingBack; // track
 		
 		// Create card side
