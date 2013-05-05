@@ -134,8 +134,8 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		h.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				//Intent i = new Intent(GameActivity.this, LevelActivity.class);
-				//startActivity(i);
+				Intent i = new Intent(GameActivity.this, LevelActivity.class);
+				startActivity(i);
 				finish();
 			}
 		},800);

@@ -93,7 +93,7 @@ public class LevelActivity extends Activity {
 			Intent intent = new Intent(LevelActivity.this, GameActivity.class);
 			intent.putExtra("level", level);
 			startActivity(intent);
-//			LevelActivity.this.finish();
+			LevelActivity.this.finish();
 		    }
 		});
 		
