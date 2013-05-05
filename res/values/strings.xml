@@ -35,7 +35,7 @@
     <string name="name_23">casau</string>
     <string name="name_24">gau</string>
     <string name="name_25">lacda</string>
-    <string name="name_26">hai au</string>
+    <string name="name_26">haiau</string>
 
     <!-- accent -->
     <string name="name_acc_0">chó</string>
@@ -91,5 +91,33 @@
     <string name="hint_7_0">Gợi ý 1: nhân vật chính phim hoạt hình "Nu, pogodi !" (hãy đợi đấy)</string>
     <string name="hint_7_1">Gợi ý 2: con vật này rất thích ăn carrot </string>
     <string name="hint_7_2">Gợi ý 3: Bunny trong phim hoạt hình là loài vật này</string>
+
+    <string name="hint_8_0">Gợi ý 1: Con vật này có lông rất dày</string>
+    <string name="hint_8_1">Gợi ý 2: Tiếng kêu của nó là be be</string>
+    <string name="hint_8_2">Gợi ý 3: Lông của con vật này để làm len</string>
+
+    <string name="hint_9_0">Gợi ý 1: Con vật thuộc họ nhà mèo</string>
+    <string name="hint_9_1">Gợi ý 2: Là loài săn mồi lớn</string>
+    <string name="hint_9_2">Gợi ý 3: Thường có màu vàng, sọc đen</string>
+
+    <string name="hint_10_0">Gợi ý 1: Thuộc họ bò sát</string>
+    <string name="hint_10_1">Gợi ý 2: Mình có vảy</string>
+    <string name="hint_10_2">Gợi ý 3: Không có chân, di chuyển bằng cách trườn</string>
+
+    <string name="hint_11_0">Gợi ý 1: Con vật có 2 chân</string>
+    <string name="hint_11_1">Gợi ý 2: Có cánh nhưng không biết bay</string>
+    <string name="hint_11_2">Gợi ý 3: Thường được nuôi trong các gia đình</string>
+
+    <string name="hint_12_0">Gợi ý 1: Một con vật rất to khỏe</string>
+    <string name="hint_12_1">Gợi ý 2: Có sừng dài và cong</string>
+    <string name="hint_12_2">Gợi ý 3: Là "đầu cơ nghiệp" của người nông dân thời xưa</string>
+
+    <string name="hint_13_0">Gợi ý 1: con vật thuộc họ gặm nhấm</string>
+    <string name="hint_13_1">Gợi ý 2: sống trên cây, thích ăn hạt</string>
+    <string name="hint_13_2">Gợi ý 3: nhanh như ...</string>
+
+    <string name="hint_14_0">Gợi ý 1: Con vật thuộc họ nhà mèo</string>
+    <string name="hint_14_1">Gợi ý 2: là loài vật chạy nhanh nhất</string>
+    <string name="hint_14_2">Gợi ý 3: thường có bộ lông vàng đốm đen</string>
 
 </resources>
