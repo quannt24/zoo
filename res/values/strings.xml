@@ -68,56 +68,85 @@
 
     <!-- hint -->
     <string name="hint_0_0">Gợi ý 1: con vật này nuôi để giữ nhà</string>
-    <string name="hint_0_1">Gợi ý 2: con vật này thích gặm xương</string>
-    <string name="hint_0_2">Gợi ý 3: con vật này hay được gọi là Mực, Vàng</string>
-    <string name="hint_1_0">Gợi ý 1: con vật này thích bắt chuột</string>
+    <string name="hint_0_1">Gợi ý 2: nó thích gặm xương</string>
+    <string name="hint_0_2">Gợi ý 3: tên hay gọi là Mực, Vàng</string>
+    <string name="hint_1_0">Gợi ý 1: nó hay bắt chuột</string>
     <string name="hint_1_1">Gợi ý 2: con vật này thích ăn cá</string>
     <string name="hint_1_2">Gợi ý 3: nhân vật chính, màu xanh trong Tom và Jerry</string>
     <string name="hint_2_0">Gợi ý 1: con vật này chạy rất nhanh</string>
     <string name="hint_2_1">Gợi ý 2: con vật trong thành ngữ "một con .... đau, cả tàu bỏ cỏ"</string>
-    <string name="hint_2_2">Gợi ý 3: con vật này hay dùng để kéo xe</string>
+    <string name="hint_2_2">Gợi ý 3: nó hay dùng để kéo xe</string>
     <string name="hint_3_0">Gợi ý 1: con vật này cho sữa</string>
-    <string name="hint_3_1">Gợi ý 2: con vật này thích ăn cỏ</string>
+    <string name="hint_3_1">Gợi ý 2: nó thích ăn cỏ</string>
     <string name="hint_3_2">Gợi ý 3: con vật trong quảng cáo sữa của VinaMilk</string>
-    <string name="hint_4_0">Gợi ý 1: con vật này hay leo trèo</string>
+    <string name="hint_4_0">Gợi ý 1: nó thích hay leo trèo</string>
     <string name="hint_4_1">Gợi ý 2: Tôn Ngộ Không là loài vậy này</string>
     <string name="hint_4_2">Gợi ý 3: con vật này thích ăn chuối</string>
     <string name="hint_5_0">Gợi ý 1: con vật này là loài gặm nhấm</string>
-    <string name="hint_5_1">Gợi ý 2: con vật này kêu "Chít Chít"</string>
-    <string name="hint_5_2">Gợi ý 3: con vật này cùng họ với sóc, nhím và Hamster</string>
-    <string name="hint_6_0">Gợi ý 1: con vật này sống trong chuồng</string>
-    <string name="hint_6_1">Gợi ý 2: con vật này kêu "Éc Éc"</string>
+    <string name="hint_5_1">Gợi ý 2: tiếng kêu của nó là "Chít Chít"</string>
+    <string name="hint_5_2">Gợi ý 3: cùng họ với sóc, nhím và Hamster</string>
+    <string name="hint_6_0">Gợi ý 1: sống trong chuồng</string>
+    <string name="hint_6_1">Gợi ý 2: nó kêu "Éc Éc"</string>
     <string name="hint_6_2">Gợi ý 3: Trư Bát Giới là loài vật này</string>
     <string name="hint_7_0">Gợi ý 1: nhân vật chính phim hoạt hình "Nu, pogodi !" (hãy đợi đấy)</string>
     <string name="hint_7_1">Gợi ý 2: con vật này rất thích ăn carrot </string>
     <string name="hint_7_2">Gợi ý 3: Bunny trong phim hoạt hình là loài vật này</string>
-
     <string name="hint_8_0">Gợi ý 1: Con vật này có lông rất dày</string>
     <string name="hint_8_1">Gợi ý 2: Tiếng kêu của nó là be be</string>
     <string name="hint_8_2">Gợi ý 3: Lông của con vật này để làm len</string>
-
     <string name="hint_9_0">Gợi ý 1: Con vật thuộc họ nhà mèo</string>
     <string name="hint_9_1">Gợi ý 2: Là loài săn mồi lớn</string>
     <string name="hint_9_2">Gợi ý 3: Thường có màu vàng, sọc đen</string>
-
     <string name="hint_10_0">Gợi ý 1: Thuộc họ bò sát</string>
     <string name="hint_10_1">Gợi ý 2: Mình có vảy</string>
     <string name="hint_10_2">Gợi ý 3: Không có chân, di chuyển bằng cách trườn</string>
-
     <string name="hint_11_0">Gợi ý 1: Con vật có 2 chân</string>
     <string name="hint_11_1">Gợi ý 2: Có cánh nhưng không biết bay</string>
     <string name="hint_11_2">Gợi ý 3: Thường được nuôi trong các gia đình</string>
-
     <string name="hint_12_0">Gợi ý 1: Một con vật rất to khỏe</string>
     <string name="hint_12_1">Gợi ý 2: Có sừng dài và cong</string>
     <string name="hint_12_2">Gợi ý 3: Là "đầu cơ nghiệp" của người nông dân thời xưa</string>
-
     <string name="hint_13_0">Gợi ý 1: con vật thuộc họ gặm nhấm</string>
     <string name="hint_13_1">Gợi ý 2: sống trên cây, thích ăn hạt</string>
-    <string name="hint_13_2">Gợi ý 3: nhanh như ...</string>
-
+    <string name="hint_13_2">Gợi ý 3: nhanh như ....</string>
     <string name="hint_14_0">Gợi ý 1: Con vật thuộc họ nhà mèo</string>
     <string name="hint_14_1">Gợi ý 2: là loài vật chạy nhanh nhất</string>
     <string name="hint_14_2">Gợi ý 3: thường có bộ lông vàng đốm đen</string>
+    <string name="hint_15_0">Gợi ý 1: chúa sơn lâm là con này</string>
+    <string name="hint_15_1">Gợi ý 2: sống ở Châu Phi</string>
+    <string name="hint_15_2">Gợi ý 3: con đực không biết săn mồi</string>
+    <string name="hint_16_0">Gợi ý 1: sống ở Châu Phi</string>
+    <string name="hint_16_1">Gợi ý 2: nó có sừng rất khỏe</string>
+    <string name="hint_16_2">Gợi ý 3: chim diệc ăn kí sinh trên người chúng</string>
+    <string name="hint_17_0">Gợi ý 1: to béo, cà ngày nằm dưới nước</string>
+    <string name="hint_17_1">Gợi ý 2: sữa của chúng màu hồng</string>
+    <string name="hint_17_2">Gợi ý 3: sống ở Châu Phi</string>
+    <string name="hint_18_0">Gợi ý 1: những cái gai để bảo vệ cơ thể chúng</string>
+    <string name="hint_18_1">Gợi ý 2: khi bị đe dọa sẽ xù lông nhọn và cuộn người</string>
+    <string name="hint_18_2">Gợi ý 3: thuộc họ nhà chuột</string>
+    <string name="hint_19_0">Gợi ý 1: con thú trên cạnto nhất hành tinh</string>
+    <string name="hint_19_1">Gợi ý 2: cặp ngà của con đực rất lớn</string>
+    <string name="hint_19_2">Gợi ý 3: vòi của chúng để hút nước, tóm thức ăn</string>
+    <string name="hint_20_0">Gợi ý 1: con vật này sống đơn độc</string>
+    <string name="hint_20_1">Gợi ý 2: rất hay tru vào ban đêm</string>
+    <string name="hint_20_2">Gợi ý 3: mạnh nhất vào đêm trăng rằm</string>
+    <string name="hint_21_0">Gợi ý 1: nhân vật trong tác phẩm "con ..... và chùm nho"</string>
+    <string name="hint_21_1">Gợi ý 2: bộ lông của chúng thay đổi theo mùa</string>
+    <string name="hint_21_2">Gợi ý 3: rất xảo quyệt</string>
+    <string name="hint_22_0">Gợi ý 1: biểu tượng của hòa bình</string>
+    <string name="hint_22_1">Gợi ý 2: chuyên dùng để đưa thư</string>
+    <string name="hint_22_2">Gợi ý 3: quay lên ăn rất ngon, khà khà :D</string>
+    <string name="hint_23_0">Gợi ý 1: nó là chúa tể đầm lầy</string>
+    <string name="hint_23_1">Gợi ý 2: hàm răng của chúng rất khỏe</string>
+    <string name="hint_23_2">Gợi ý 3: xấu như cá ....</string>
+    <string name="hint_24_0">Gợi ý 1: thích ăn mật ong, cá hồi</string>
+    <string name="hint_24_1">Gợi ý 2: khi chạy xuống dốc hay bị ngã do chân ngắn</string>
+    <string name="hint_24_2">Gợi ý 3: người hung hăng được gọi là đầu ....</string>
+    <string name="hint_25_0">Gợi ý 1: sống ở Sa mạc</string>
+    <string name="hint_25_1">Gợi ý 2: có bướu để chứa mỡ, nước</string>
+    <string name="hint_25_2">Gợi ý 3: loài ở Châu á có 1 bướu, ở Châu Phi có 2 bướu</string>
+    <string name="hint_26_0">Gợi ý 1: sống ở ven biển</string>
+    <string name="hint_26_1">Gợi ý 2: là loài chim báo bão</string>
+    <string name="hint_26_2">Gợi ý 3: chuyên ăn xác cá chết</string>
 
 </resources>
