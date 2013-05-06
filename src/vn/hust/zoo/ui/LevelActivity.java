@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 
@@ -24,7 +25,7 @@ public class LevelActivity extends Activity {
     SwipeView mSwipeView;
 
     LinearLayout[] r = new LinearLayout[3];
-//    Button b[][] = new Button[3][9];
+    Button b[][] = new Button[3][9];
     ImageView[][] imgStar = new ImageView[3][9];
 
     @Override
@@ -58,7 +59,7 @@ public class LevelActivity extends Activity {
 		frame.setLayoutParams(params);
 	    }
 
-//	    mSwipeView.addView(frame);
+	    mSwipeView.addView(frame);
 	}
 
 	// set up each screen
@@ -69,8 +70,8 @@ public class LevelActivity extends Activity {
 	}
 
 	for (int i = 0; i < 3; i++) {
-	    LinearLayout mTableLayout = new LinearLayout(this);
-	    LinearLayout mTableRow[] = new LinearLayout[6];
+	    TableLayout mTableLayout = new TableLayout(this);
+	    TableRow mTableRow[] = new TableRow[6];
 	    
 	    LayoutParams buttonParams = new TableRow.LayoutParams();
 	    buttonParams.setMargins(30, 5, 30, 5);
@@ -86,9 +87,9 @@ public class LevelActivity extends Activity {
 	    for (int j = 0; j < 9; j++) {
 		final int level = i * 9 + j;
 		
-		Button b = new Button(this);
+		b[i][j] = new Button(this);
 
-		b.setOnClickListener(new View.OnClickListener() {
+		b[i][j].setOnClickListener(new View.OnClickListener() {
 
 		    @Override
 		    public void onClick(View v) {
@@ -99,10 +100,10 @@ public class LevelActivity extends Activity {
 		    }
 		});
 		
-		b.setBackgroundResource(R.drawable.button_level);
-		b.setTextSize(20);
-		b.setTextColor(Color.WHITE);
-		b.setText(String.valueOf(level + 1));
+		b[i][j].setBackgroundResource(R.drawable.button_level);
+		b[i][j].setTextSize(20);
+		b[i][j].setTextColor(Color.WHITE);
+		b[i][j].setText(String.valueOf(level + 1));
 
 		imgStar[i][j] = new ImageView(this);
 		imgStar[i][j].setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -123,7 +124,7 @@ public class LevelActivity extends Activity {
 		    imgStar[i][j].setBackgroundResource(R.drawable.star0);
 		    break;
 		}
-		mTableRow[j / 3 * 2].addView(b, buttonParams);
+		mTableRow[j / 3 * 2].addView(b[i][j], buttonParams);
 		mTableRow[j / 3 * 2 + 1].addView(imgStar[i][j], buttonParams2);
 	    }
 
@@ -131,14 +132,12 @@ public class LevelActivity extends Activity {
 		mTableLayout.addView(mTableRow[j]);
 	    }
 
-//	    r[i].addView(mTableLayout);
-	    mSwipeView.addView(mTableLayout);
-
+	    r[i].addView(mTableLayout);
 	}
 
-//	((FrameLayout) mSwipeView.getChildContainer().getChildAt(0)).addView(r[0]);
-//	((FrameLayout) mSwipeView.getChildContainer().getChildAt(1)).addView(r[1]);
-//	((FrameLayout) mSwipeView.getChildContainer().getChildAt(2)).addView(r[2]);
+	((FrameLayout) mSwipeView.getChildContainer().getChildAt(0)).addView(r[0]);
+	((FrameLayout) mSwipeView.getChildContainer().getChildAt(1)).addView(r[1]);
+	((FrameLayout) mSwipeView.getChildContainer().getChildAt(2)).addView(r[2]);
 	
 	SwipeImageLoader mSwipeImageLoader = new SwipeImageLoader();
 
