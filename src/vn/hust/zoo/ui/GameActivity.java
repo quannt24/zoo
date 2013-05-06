@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -330,9 +329,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			// Hint
 			TextView t = (TextView) mGameActivity.findViewById(R.id.game_hint);
 			t.setText("" + GameLogic.getHint());
-			t.setTextColor(Color.BLUE);
-			t.setTextSize(20);
-			t.setTypeface(GameActivity.t, Typeface.BOLD_ITALIC);
+			t.setTypeface(GameActivity.t, Typeface.ITALIC);
 			
 			// Gesture
 			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, (Button) mGameActivity.findViewById(R.id.swipe2)));
