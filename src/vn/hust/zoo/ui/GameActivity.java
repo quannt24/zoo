@@ -97,7 +97,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	}
 	
 	public void onReplay(View v){
-		if(v.getId() == R.id.replay) v.setBackgroundResource(R.drawable.button_next_pressed);
+		if(v.getId() == R.id.replay) v.setBackgroundResource(R.drawable.button_replay_pressed);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			@Override
@@ -108,7 +108,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				startActivity(i);
 				finish();
 			}
-		},800);
+		},MainActivity.BUTTON_DELAY);
 	}
 	
 	public void onNext(View v){
@@ -123,21 +123,21 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				startActivity(i);
 				finish();
 			}
-		},800);
+		},MainActivity.BUTTON_DELAY);
 	}
 	
 	public void onMenuSelect(View v){
-		if(v.getId() == R.id.menu) v.setBackgroundResource(R.drawable.button_menu_pressed);
-		if(v.getId() == R.id.game_question || v.getId() == R.id.game_level_select) v.setBackgroundResource(R.drawable.button_level_select_pressed80);
+		if(v.getId() == R.id.menu) v.setBackgroundResource(R.drawable.button_level_select_completed_pressed);
+		if(v.getId() == R.id.game_question || v.getId() == R.id.game_level_select) v.setBackgroundResource(R.drawable.button_level_select_pressed);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				Intent i = new Intent(GameActivity.this, LevelActivity.class);
-				startActivity(i);
+//				Intent i = new Intent(GameActivity.this, LevelActivity.class);
+//				startActivity(i);
 				finish();
 			}
-		},800);
+		},MainActivity.BUTTON_DELAY);
 	}
 	
 	public void onSwitch(View v){

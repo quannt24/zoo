@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -14,7 +15,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 
 public class HelpActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
 	private boolean mShowingBack = false;
@@ -36,6 +37,16 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 		getFragmentManager().addOnBackStackChangedListener(this);
 	}
 
+	public void onBack(final View v){
+		v.setBackgroundResource(R.drawable.button_back_pressed);
+    	(new Handler()).postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				HelpActivity.super.onBackPressed();
+			}
+		}, MainActivity.BUTTON_DELAY);
+	}
+	
 	public void onSwipe(View v) {
 		switch (v.getId()) {
 		case R.id.help_back:
@@ -130,7 +141,7 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 			super.onActivityCreated(savedInstanceState);
 
 			// Gesture
-			LinearLayout l1 = (LinearLayout) helpActivity.findViewById(R.id.help1);
+			FrameLayout l1 = (FrameLayout) helpActivity.findViewById(R.id.help1);
 			Button i = (Button) helpActivity.findViewById(R.id.help_front);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(helpActivity, i));
 			l1.setOnTouchListener(new OnTouchListener() {
@@ -166,8 +177,7 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 			super.onActivityCreated(savedInstanceState);
 
 			// Gesture
-			LinearLayout l1 = (LinearLayout) helpActivity
-					.findViewById(R.id.help2);
+			FrameLayout l1 = (FrameLayout) helpActivity.findViewById(R.id.help2);
 			Button i = (Button) helpActivity.findViewById(R.id.help_back);
 			gestureDetector = new GestureDetector(new SwingGestureDetection(helpActivity, i));
 			l1.setOnTouchListener(new OnTouchListener() {

@@ -19,7 +19,7 @@
             android:layout_gravity="top|right"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/button_level_select80"
+            android:background="@drawable/button_level_select"
             android:onClick="onMenuSelect" />
     </LinearLayout>
 
@@ -163,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="30dp"
-                    android:background="@drawable/button_next"
+                    android:background="@drawable/button_replay"
                     android:onClick="onReplay"
                     android:visibility="invisible" />
 
@@ -182,7 +182,7 @@
                     style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_menu"
+                    android:background="@drawable/button_level_select_completed"
                     android:onClick="onMenuSelect"
                     android:visibility="invisible" />
             </LinearLayout>

@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	public static int BUTTON_DELAY = 400;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +25,33 @@ public class MainActivity extends Activity {
 			public void run() {
 				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
 				startActivity(intent);
-				v.setBackgroundResource(R.drawable.menu_play);
+				v.setBackgroundResource(R.drawable.button_play);
 //				finish();
 			}
-		}, 800);
+		}, MainActivity.BUTTON_DELAY);
 	}
 
-	public void onHelp(View v) {
-		Intent intent = new Intent(this,  HelpActivity.class);
-		startActivity(intent);
+	public void onHelp(final View v) {
+		v.setBackgroundResource(R.drawable.button_help_pressed);
+		(new Handler()).postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+				startActivity(intent);
+				v.setBackgroundResource(R.drawable.button_help);
+			}
+		}, MainActivity.BUTTON_DELAY);
 	}
 
-	public void onExit(View v) {
-		onBackPressed();
+	public void onExit(final View v) {
+		v.setBackgroundResource(R.drawable.button_exit_pressed);
+		(new Handler()).postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				onBackPressed();
+				v.setBackgroundResource(R.drawable.button_exit);
+			}
+		}, MainActivity.BUTTON_DELAY);
 	}
 
 	@Override

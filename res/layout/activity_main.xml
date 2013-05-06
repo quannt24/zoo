@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|center_horizontal"
             android:layout_marginBottom="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/menu_logo" />
 
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:background="@drawable/menu_play"
+                android:background="@drawable/button_play"
                 android:onClick="onPlay" />
 
             <Button
