@@ -110,4 +110,6 @@ public class GameLogic {
 	public static String getNameAcc(){return GameLogic.animalNameAcc;}
 	public static String getHint(){return GameLogic.animalHint;}
 	public static int getStar(){return GameLogic.gameWinStar;}
+	
+	public static Indicator getIndicator(){return GameLogic.mIndicator;}
 }

@@ -46,4 +46,6 @@ public class Indicator {
 	}
 	
 	public Stack<Button> getCharAnswer(){return charAnswer;}
+	public ArrayList<Button> getPlayerAnswer(){return playerAnswer;}
+
 }

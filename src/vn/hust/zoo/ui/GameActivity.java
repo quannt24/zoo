@@ -1,5 +1,7 @@
 package vn.hust.zoo.ui;
 
+import java.util.ArrayList;
+
 import vn.hust.zoo.R;
 import vn.hust.zoo.logic.GameLogic;
 import vn.hust.zoo.logic.Score;
@@ -53,6 +55,7 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 		// setup gameLogic properties
 		Intent i = getIntent();
 		int level = i.getIntExtra("level", 0);
+		GameLogic.clear();
 		GameLogic.initLevel(this, level);
 		GameLogic.initCharacter();
 	}
@@ -299,7 +302,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			// answer screen setup
 			
 			// prepare logic indicator
-			GameLogic.clear();
 
 			// view
 			LinearLayout l = (LinearLayout) mGameActivity.findViewById(R.id.correct);
@@ -348,6 +350,30 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			TextView t = (TextView) mGameActivity.findViewById(R.id.game_hint);
 			t.setText("" + GameLogic.getHint());
 			t.setTypeface(GameActivity.t, Typeface.ITALIC);
+			
+			// restore choice char
+			ArrayList<Button> bu = new ArrayList<Button>();
+			for(Button b : GameLogic.getIndicator().getCharAnswer()){
+				Button b2 = (Button) mGameActivity.findViewById(b.getId());
+				b2.setVisibility(View.INVISIBLE);
+				bu.add(b2);
+			}
+			GameLogic.getIndicator().getCharAnswer().clear();
+			for(Button b2 : bu)
+				GameLogic.getIndicator().getCharAnswer().push(b2);
+			
+			// restore player answer char
+			ArrayList<Button> buffer = new ArrayList<Button>();
+			for (Button b : GameLogic.getIndicator().getPlayerAnswer()) {
+				Button b2 = (Button)mGameActivity.findViewById(b.getId());
+				buffer.add(b2);
+				b2.setText(b.getText());
+			}
+			
+			GameLogic.getIndicator().getPlayerAnswer().clear();
+			for (Button b2 : buffer)
+				GameLogic.getIndicator().addPlayerAnswerButton(b2);
+			
 			
 			// Gesture
 			gestureDetector = new GestureDetector(new SwingGestureDetection(mGameActivity, (Button) mGameActivity.findViewById(R.id.swipe2)));
