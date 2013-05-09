@@ -4,6 +4,7 @@ import vn.hust.zoo.R;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -17,10 +18,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-public class HelpActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
+public class FirstHelpActivity extends Activity implements FragmentManager.OnBackStackChangedListener {
 	public static boolean touchable = true;
 	
 	private boolean mShowingBack = false;
+	private int level;
 	public int direction = GameActivity.RIGHT2LEFT;
 
 	@Override
@@ -37,6 +39,9 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 		}
 
 		getFragmentManager().addOnBackStackChangedListener(this);
+		
+		Intent i = getIntent();
+		level = i.getIntExtra("level", 0);
 	}
 
 	public void onBack(final View v){
@@ -46,7 +51,7 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
     	(new Handler()).postDelayed(new Runnable() {
 			@Override
 			public void run() {
-				HelpActivity.super.onBackPressed();
+				FirstHelpActivity.super.onBackPressed();
 				HelpActivity.touchable = true;
 			}
 		}, MainActivity.BUTTON_DELAY);
@@ -54,9 +59,15 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 	
 	public void onSwipe(View v) {
 		switch (v.getId()) {
-		case R.id.help_back:
 		case R.id.help_front:
 			flipCard();
+			break;
+		case R.id.help_back:
+//			flipCard();
+			Intent i = new Intent(this, GameActivity.class);
+			i.putExtra("level", level);
+			startActivity(i);
+			finish();
 			break;
 		}
 	}
@@ -101,9 +112,9 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 		private static int SWIPE_THRESHOLD_VELOCITY = 10;
 
 		private Button i;
-		private HelpActivity mActivity;
+		private FirstHelpActivity mActivity;
 
-		public SwingGestureDetection(HelpActivity mActivity, Button i) {
+		public SwingGestureDetection(FirstHelpActivity mActivity, Button i) {
 			this.i = i;
 			this.mActivity = mActivity;
 		}
@@ -126,13 +137,13 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 	}
 
 	public static class HelpFrontFragment extends Fragment {
-		private HelpActivity helpActivity;
+		private FirstHelpActivity helpActivity;
 		private GestureDetector gestureDetector;
 
 		public HelpFrontFragment() {
 		}
 
-		public void set(HelpActivity helpActivity) {
+		public void set(FirstHelpActivity helpActivity) {
 			this.helpActivity = helpActivity;
 		}
 
@@ -161,13 +172,13 @@ public class HelpActivity extends Activity implements FragmentManager.OnBackStac
 	}
 
 	public static class HelpBackFragment extends Fragment {
-		private HelpActivity helpActivity;
+		private FirstHelpActivity helpActivity;
 		private GestureDetector gestureDetector;
 
 		public HelpBackFragment() {
 		}
 
-		public void set(HelpActivity helpActivity) {
+		public void set(FirstHelpActivity helpActivity) {
 			this.helpActivity = helpActivity;
 		}
 

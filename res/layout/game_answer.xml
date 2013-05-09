@@ -83,6 +83,7 @@
 
                 <ImageView
                     android:id="@+id/game_star"
+                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
@@ -155,14 +156,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical" >
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/menu"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/button_level_select_completed"
+                    android:onClick="onMenuSelect"
+                    android:visibility="invisible" />
 
                 <Button
                     android:id="@+id/replay"
                     style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
                     android:background="@drawable/button_replay"
                     android:onClick="onReplay"
                     android:visibility="invisible" />
@@ -172,18 +182,9 @@
                     style="@style/AppTheme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="30dp"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/button_next"
                     android:onClick="onNext"
-                    android:visibility="invisible" />
-
-                <Button
-                    android:id="@+id/menu"
-                    style="@style/AppTheme"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button_level_select_completed"
-                    android:onClick="onMenuSelect"
                     android:visibility="invisible" />
             </LinearLayout>
 
@@ -280,9 +281,9 @@
 
                 <TextView
                     android:id="@+id/game_hint"
-                    android:layout_gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="20dp"

@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.View;
 
 public class MainActivity extends Activity {
+	public static boolean touchable = true;
 	public static int BUTTON_DELAY = 400;
 
 	@Override
@@ -19,36 +20,44 @@ public class MainActivity extends Activity {
 	}
 
 	public void onPlay(final View v) {
+		if(!touchable) return;
+		else touchable = false;
 		v.setBackgroundResource(R.drawable.button_play_pressed);
 		(new Handler()).postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				Intent intent = new Intent(MainActivity.this, LevelActivity.class);
 				startActivity(intent);
+				MainActivity.touchable = true;
 				v.setBackgroundResource(R.drawable.button_play);
-//				finish();
 			}
 		}, MainActivity.BUTTON_DELAY);
 	}
 
 	public void onHelp(final View v) {
+		if(!touchable) return;
+		else touchable = false;
 		v.setBackgroundResource(R.drawable.button_help_pressed);
 		(new Handler()).postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				Intent intent = new Intent(MainActivity.this, HelpActivity.class);
 				startActivity(intent);
+				MainActivity.touchable = true;
 				v.setBackgroundResource(R.drawable.button_help);
 			}
 		}, MainActivity.BUTTON_DELAY);
 	}
 
 	public void onExit(final View v) {
+		if(!touchable) return;
+		else touchable = false;
 		v.setBackgroundResource(R.drawable.button_exit_pressed);
 		(new Handler()).postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				onBackPressed();
+				MainActivity.touchable = true;
 				v.setBackgroundResource(R.drawable.button_exit);
 			}
 		}, MainActivity.BUTTON_DELAY);

@@ -51,4 +51,17 @@ public class Score {
 	}
     }
     
+    public static boolean isFirst(){
+    	SharedPreferences scorePref = act.getSharedPreferences(SCORE_PREF, 0);
+	    SharedPreferences.Editor editor = scorePref.edit();
+
+    	boolean isFirst = scorePref.getBoolean("help", true);
+    	
+    	if(isFirst) {
+    		editor.putBoolean("help", false);
+        	editor.commit();
+        	return true;
+    	}else
+    		return false;
+    }
 }

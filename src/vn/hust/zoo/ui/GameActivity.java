@@ -24,6 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GameActivity extends Activity  implements FragmentManager.OnBackStackChangedListener {
+	public static boolean touchable = true;
+	
 	public static int RIGHT2LEFT = 0;
 	public static int LEFT2RIGHT = 1;
 	
@@ -75,9 +77,11 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			((TextView) findViewById(R.id.game_hint)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow1)).setVisibility(View.INVISIBLE);
 			((LinearLayout) findViewById(R.id.answerRow2)).setVisibility(View.INVISIBLE);
+			((Button) findViewById(R.id.game_level_select)).setVisibility(View.INVISIBLE);
 			
 			((ImageView) findViewById(R.id.result_true)).setVisibility(View.VISIBLE);
 			
+			GameLogic.loadStar(this);
 			((ImageView) findViewById(R.id.game_star)).setVisibility(View.VISIBLE);
 			((ImageView) findViewById(R.id.game_star)).setBackgroundResource(GameLogic.getStar());
 
@@ -97,6 +101,9 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 	}
 	
 	public void onReplay(View v){
+		if(!GameActivity.touchable) return;
+		else GameActivity.touchable = false;
+		
 		if(v.getId() == R.id.replay) v.setBackgroundResource(R.drawable.button_replay_pressed);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
@@ -105,13 +112,19 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				Intent i = new Intent(GameActivity.this, GameActivity.class);
 				if(GameLogic.getLevel() == 26)  i.putExtra("level", 0);
 				else							i.putExtra("level", GameLogic.getLevel());
+				
 				startActivity(i);
+				
+				GameActivity.touchable = true;
 				finish();
 			}
 		},MainActivity.BUTTON_DELAY);
 	}
 	
 	public void onNext(View v){
+		if(!GameActivity.touchable) return;
+		else GameActivity.touchable = false;
+		
 		if(v.getId() == R.id.next) v.setBackgroundResource(R.drawable.button_next_pressed);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
@@ -120,21 +133,26 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 				Intent i = new Intent(GameActivity.this, GameActivity.class);
 				if(GameLogic.getLevel() == 26)  i.putExtra("level", 0);
 				else							i.putExtra("level", GameLogic.getLevel() + 1);
+				
 				startActivity(i);
+				
+				GameActivity.touchable = true;
 				finish();
 			}
 		},MainActivity.BUTTON_DELAY);
 	}
 	
 	public void onMenuSelect(View v){
+		if(!GameActivity.touchable) return;
+		else GameActivity.touchable = false;
+		
 		if(v.getId() == R.id.menu) v.setBackgroundResource(R.drawable.button_level_select_completed_pressed);
 		if(v.getId() == R.id.game_question || v.getId() == R.id.game_level_select) v.setBackgroundResource(R.drawable.button_level_select_pressed);
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			@Override
-			public void run() {
-//				Intent i = new Intent(GameActivity.this, LevelActivity.class);
-//				startActivity(i);
+			public void run() {				
+				GameActivity.touchable = true;
 				finish();
 			}
 		},MainActivity.BUTTON_DELAY);

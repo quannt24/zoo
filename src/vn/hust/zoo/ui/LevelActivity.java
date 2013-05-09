@@ -22,6 +22,7 @@ import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 
 public class LevelActivity extends Activity {
+	public static boolean touchable = true;
 
     SwipeView mSwipeView;
 
@@ -94,14 +95,26 @@ public class LevelActivity extends Activity {
 
 		    @Override
 		    public void onClick(final View v) {
+		    	if(!LevelActivity.touchable) return;
+		    	else	LevelActivity.touchable = false;
+		    	
 		    	v.setBackgroundResource(R.drawable.button_level_pressed);
 		    	(new Handler()).postDelayed(new Runnable() {
 					@Override
 					public void run() {
-						Intent intent = new Intent(LevelActivity.this, GameActivity.class);
-						intent.putExtra("level", level);
-						startActivity(intent);
-						v.setBackgroundResource(R.drawable.button_level);
+						if(Score.isFirst()){
+							Intent i = new Intent(LevelActivity.this, FirstHelpActivity.class);
+							i.putExtra("level", level);
+							startActivity(i);
+					    	LevelActivity.touchable = true;
+							v.setBackgroundResource(R.drawable.button_level);
+						}else{
+							Intent intent = new Intent(LevelActivity.this, GameActivity.class);
+							intent.putExtra("level", level);
+							startActivity(intent);
+					    	LevelActivity.touchable = true;
+							v.setBackgroundResource(R.drawable.button_level);
+						}
 					}
 				}, MainActivity.BUTTON_DELAY);
 			
@@ -154,11 +167,15 @@ public class LevelActivity extends Activity {
     }
 
     public void onBack(View v) {
+    	if(!LevelActivity.touchable) return;
+    	else	LevelActivity.touchable = false;
+    	
     	v.setBackgroundResource(R.drawable.button_back_pressed);
     	(new Handler()).postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				LevelActivity.super.onBackPressed();
+				LevelActivity.touchable = true;
 			}
 		}, MainActivity.BUTTON_DELAY);
     }

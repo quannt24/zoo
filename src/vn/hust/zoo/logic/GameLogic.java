@@ -24,6 +24,7 @@ public class GameLogic {
 	private static Indicator mIndicator = new Indicator();
 	
 	private static int correctCharToGo;
+	private static int wrongAnswer;
 	
 	// set correct Name + Level
 	public static void initLevel(Activity mActivity, int level){
@@ -33,14 +34,15 @@ public class GameLogic {
 		GameLogic.animalName = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_" + level, "string", mActivity.getPackageName()));
 		GameLogic.animalNameAcc = mActivity.getResources().getString(mActivity.getResources().getIdentifier("name_acc_" + level, "string", mActivity.getPackageName()));
 	
-		int score = Score.getScore(level);
-		if(score < 3){
-			GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_" + (score + 1) + "_big", "drawable", mActivity.getPackageName());
-			GameLogic.animalHint = mActivity.getResources().getString(mActivity.getResources().getIdentifier("hint_" + level + "_" + score, "string", mActivity.getPackageName()));
-		}else{
-			GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_3_big", "drawable", mActivity.getPackageName());
-			GameLogic.animalHint = mActivity.getResources().getString(mActivity.getResources().getIdentifier("hint_" + level + "_" + (new Random()).nextInt(3), "string", mActivity.getPackageName()));
-		}
+		GameLogic.animalHint = mActivity.getResources().getString(mActivity.getResources().getIdentifier("hint_" + level + "_" + (new Random()).nextInt(3), "string", mActivity.getPackageName()));
+		
+		GameLogic.wrongAnswer = 0;
+	}
+	
+	public static void loadStar(Activity mActivity){
+		int star = 3 - 3*GameLogic.wrongAnswer/GameLogic.animalName.length();
+		star = 1 > star ? 1 : star;
+		GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_" + star + "_big", "drawable", mActivity.getPackageName());
 	}
 	
 	public static void initCharacter(){
@@ -91,6 +93,7 @@ public class GameLogic {
 		mIndicator.removeCharAnswerButton();
 	}
 	public static void deleteAnswer(Button b){
+		wrongAnswer++;
 		mIndicator.deleteAnswer(b);
 	}
 	public static void clear(){
