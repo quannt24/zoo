@@ -1,16 +1,306 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/menu_background"
     android:orientation="vertical" >
 
+    <LinearLayout
+        android:id="@+id/swipe_answer"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right" >
+
+        <Button
+            android:id="@+id/game_level_select"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_level_select"
+            android:onClick="onMenuSelect" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="2" >
+
+            <ImageView
+                android:id="@+id/result_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:background="@drawable/result_true"
+                android:contentDescription="@string/app_name"
+                android:gravity="bottom|center_horizontal"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/result_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:background="@drawable/result_false"
+                android:contentDescription="@string/app_name"
+                android:gravity="bottom|center_horizontal"
+                android:visibility="invisible" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/game_name_acc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#ff0000"
+                    android:shadowRadius="4.0"
+                    android:textColor="#00ff00"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/game_star"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/correct"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" >
+
+                <Button
+                    android:id="@+id/correct0"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+
+                <Button
+                    android:id="@+id/correct1"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+
+                <Button
+                    android:id="@+id/correct2"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+
+                <Button
+                    android:id="@+id/correct3"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+
+                <Button
+                    android:id="@+id/correct4"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+
+                <Button
+                    android:id="@+id/correct5"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:onClick="onDeleteAnswer" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="6" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/menu"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/button_level_select_completed"
+                    android:onClick="onMenuSelect"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/replay"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_replay"
+                    android:onClick="onReplay"
+                    android:visibility="invisible" />
+
+                <Button
+                    android:id="@+id/next"
+                    style="@style/AppTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/button_next"
+                    android:onClick="onNext"
+                    android:visibility="invisible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="top|center"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/answerRow1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/answer0"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer1"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer2"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer3"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/answerRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <Button
+                        android:id="@+id/answer4"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer5"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer6"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+
+                    <Button
+                        android:id="@+id/answer7"
+                        style="@style/AppTheme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="10dp"
+                        android:onClick="onAnswer" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/game_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableLeft="@drawable/idea_light_bulb"
+                    android:textColor="#0000ff"
+                    android:textIsSelectable="false"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
     <Button
-        android:id="@+id/game_answer"
+        android:id="@+id/swipe2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:onClick="onSwitch"
-        android:text="switch" />
+        android:visibility="invisible" />
 
-</LinearLayout>
+</FrameLayout>

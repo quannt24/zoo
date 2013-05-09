@@ -1,36 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/level"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <uk.co.jasonfry.android.tools.ui.SwipeView
+    <vn.hust.zoo.swipe.SwipeView
         android:id="@+id/swipe_view"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <uk.co.jasonfry.android.tools.ui.PageControl
+    <vn.hust.zoo.swipe.PageControl
         android:id="@+id/page_control"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
         android:orientation="horizontal" >
-    </uk.co.jasonfry.android.tools.ui.PageControl>
+    </vn.hust.zoo.swipe.PageControl>
 
-    <LinearLayout
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" >
-
-        <Button
-            android:id="@+id/back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="right"
-            android:background="@drawable/back"
-            android:onClick="onBack" />
-    </LinearLayout>
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/button_back"
+        android:onClick="onBack" />
 
 </FrameLayout>

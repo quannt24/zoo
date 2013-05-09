@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/help1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/help_screen_1"
+    android:orientation="vertical" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/button_back"
+        android:gravity="bottom|left"
+        android:onClick="onBack" />
+
+    <Button
+        android:id="@+id/help_front"
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onSwipe"
+        android:visibility="invisible" />
+
+</FrameLayout>

@@ -1,27 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Flash Card</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
+    <string name="app_name">Vườn thú</string>
     <string name="author">QuanL, QuanNT, HoangTN, VanND</string>
-    <string name="confirm">Exit ?</string>
-    <string name="menu_confirm">Do you want to quit this game ?</string>
+    <string name="rights">©ICT-K545 tháng 5, 2013</string>
+    <string name="contact">Liên hệ: lequana2@yahoo.com.vn</string>
+    <string name="confirm">Thoát trò chơi</string>
+    <string name="menu_confirm">Bạn muốn thoát có phải không?</string>
 
-    <string-array name="animal_name">
-        <item>chó</item>
-        <item>mèo</item>
-        <item>ngựa</item>
-        <item>bò</item>
-        <item>khỉ</item>
-        <item>chuột</item>
-        <item>lợn</item>
-        <item>thỏ</item>
-        <item>cừu</item>
-        <item>hổ</item>
-    </string-array>
+    <!-- non-accent -->
+    <string name="name_0">cho</string>
+    <string name="name_1">meo</string>
+    <string name="name_2">ngua</string>
+    <string name="name_3">bosua</string>
+    <string name="name_4">khi</string>
+    <string name="name_5">chuot</string>
+    <string name="name_6">lon</string>
+    <string name="name_7">tho</string>
+    <string name="name_8">cuu</string>
+    <string name="name_9">ho</string>
+    <string name="name_10">ran</string>
+    <string name="name_11">ga</string>
+    <string name="name_12">trau</string>
+    <string name="name_13">soc</string>
+    <string name="name_14">bao</string>
+    <string name="name_15">sutu</string>
+    <string name="name_16">tegiac</string>
+    <string name="name_17">hama</string>
+    <string name="name_18">nhim</string>
+    <string name="name_19">voi</string>
+    <string name="name_20">chosoi</string>
+    <string name="name_21">cao</string>
+    <string name="name_22">bocau</string>
+    <string name="name_23">casau</string>
+    <string name="name_24">gau</string>
+    <string name="name_25">lacda</string>
+    <string name="name_26">haiau</string>
 
-    <string name="title_activity_level">LevelActivity</string>
-    <string name="action_settings">Settings</string>
+    <!-- accent -->
+    <string name="name_acc_0">chó</string>
+    <string name="name_acc_1">mèo</string>
+    <string name="name_acc_2">ngựa</string>
+    <string name="name_acc_3">bò sữa</string>
+    <string name="name_acc_4">khỉ</string>
+    <string name="name_acc_5">chuột</string>
+    <string name="name_acc_6">lợn</string>
+    <string name="name_acc_7">thỏ</string>
+    <string name="name_acc_8">cừu</string>
+    <string name="name_acc_9">hổ</string>
+    <string name="name_acc_10">rắn</string>
+    <string name="name_acc_11">gà</string>
+    <string name="name_acc_12">trâu</string>
+    <string name="name_acc_13">sóc</string>
+    <string name="name_acc_14">báo</string>
+    <string name="name_acc_15">sư tử</string>
+    <string name="name_acc_16">tê giác</string>
+    <string name="name_acc_17">hà mã</string>
+    <string name="name_acc_18">nhím</string>
+    <string name="name_acc_19">voi</string>
+    <string name="name_acc_20">chó sói</string>
+    <string name="name_acc_21">cáo</string>
+    <string name="name_acc_22">bồ câu</string>
+    <string name="name_acc_23">cá sấu</string>
+    <string name="name_acc_24">gấu</string>
+    <string name="name_acc_25">lạc đà</string>
+    <string name="name_acc_26">hải âu</string>
+
+    <!-- hint -->
+    <string name="hint_0_0">con vật này nuôi để giữ nhà</string>
+    <string name="hint_0_1">nó thích gặm xương</string>
+    <string name="hint_0_2">tên hay gọi là Mực, Vàng</string>
+    <string name="hint_1_0">nó hay bắt chuột</string>
+    <string name="hint_1_1">con vật này thích ăn cá</string>
+    <string name="hint_1_2">nhân vật chính, màu xanh trong Tom và Jerry</string>
+    <string name="hint_2_0">con vật này chạy rất nhanh</string>
+    <string name="hint_2_1">con vật trong thành ngữ "một con .... đau, cả tàu bỏ cỏ"</string>
+    <string name="hint_2_2">nó hay dùng để kéo xe</string>
+    <string name="hint_3_0">con vật này cho sữa</string>
+    <string name="hint_3_1">nó thích ăn cỏ</string>
+    <string name="hint_3_2">con vật trong quảng cáo sữa của VinaMilk</string>
+    <string name="hint_4_0">nó thích hay leo trèo</string>
+    <string name="hint_4_1">Tôn Ngộ Không là loài vậy này</string>
+    <string name="hint_4_2">con vật này thích ăn chuối</string>
+    <string name="hint_5_0">con vật này là loài gặm nhấm</string>
+    <string name="hint_5_1">tiếng kêu của nó là "Chít Chít"</string>
+    <string name="hint_5_2">cùng họ với sóc, nhím và Hamster</string>
+    <string name="hint_6_0">sống trong chuồng</string>
+    <string name="hint_6_1">nó kêu "Éc Éc"</string>
+    <string name="hint_6_2">Trư Bát Giới là loài vật này</string>
+    <string name="hint_7_0">nhân vật chính phim hoạt hình "Nu, pogodi !" (hãy đợi đấy)</string>
+    <string name="hint_7_1">con vật này rất thích ăn carrot </string>
+    <string name="hint_7_2">Bunny trong phim hoạt hình là loài vật này</string>
+    <string name="hint_8_0">Con vật này có lông rất dày</string>
+    <string name="hint_8_1">Tiếng kêu của nó là be be</string>
+    <string name="hint_8_2">Lông của con vật này để làm len</string>
+    <string name="hint_9_0">Con vật thuộc họ nhà mèo</string>
+    <string name="hint_9_1">Là loài săn mồi lớn</string>
+    <string name="hint_9_2">Thường có màu vàng, sọc đen</string>
+    <string name="hint_10_0">Thuộc họ bò sát</string>
+    <string name="hint_10_1">Mình có vảy</string>
+    <string name="hint_10_2">Không có chân, di chuyển bằng cách trườn</string>
+    <string name="hint_11_0">Con vật có 2 chân</string>
+    <string name="hint_11_1">Có cánh nhưng không biết bay</string>
+    <string name="hint_11_2">Thường được nuôi trong các gia đình</string>
+    <string name="hint_12_0">Một con vật rất to khỏe</string>
+    <string name="hint_12_1">Có sừng dài và cong</string>
+    <string name="hint_12_2">Là "đầu cơ nghiệp" của người nông dân thời xưa</string>
+    <string name="hint_13_0">con vật thuộc họ gặm nhấm</string>
+    <string name="hint_13_1">sống trên cây, thích ăn hạt</string>
+    <string name="hint_13_2">nhanh như ....</string>
+    <string name="hint_14_0">Con vật thuộc họ nhà mèo</string>
+    <string name="hint_14_1">là loài vật chạy nhanh nhất</string>
+    <string name="hint_14_2">thường có bộ lông vàng đốm đen</string>
+    <string name="hint_15_0">chúa sơn lâm là con này</string>
+    <string name="hint_15_1">sống ở Châu Phi</string>
+    <string name="hint_15_2">con đực không biết săn mồi</string>
+    <string name="hint_16_0">sống ở Châu Phi</string>
+    <string name="hint_16_1">nó có sừng rất khỏe</string>
+    <string name="hint_16_2">chim diệc ăn kí sinh trên người chúng</string>
+    <string name="hint_17_0">to béo, cà ngày nằm dưới nước</string>
+    <string name="hint_17_1">sữa của chúng màu hồng</string>
+    <string name="hint_17_2">sống ở Châu Phi</string>
+    <string name="hint_18_0">những cái gai để bảo vệ cơ thể chúng</string>
+    <string name="hint_18_1">khi bị đe dọa sẽ xù lông nhọn và cuộn người</string>
+    <string name="hint_18_2">thuộc họ nhà chuột</string>
+    <string name="hint_19_0">con thú trên cạnto nhất hành tinh</string>
+    <string name="hint_19_1">cặp ngà của con đực rất lớn</string>
+    <string name="hint_19_2">vòi của chúng để hút nước, tóm thức ăn</string>
+    <string name="hint_20_0">con vật này sống đơn độc</string>
+    <string name="hint_20_1">rất hay tru vào ban đêm</string>
+    <string name="hint_20_2">mạnh nhất vào đêm trăng rằm</string>
+    <string name="hint_21_0">nhân vật trong tác phẩm "con ..... và chùm nho"</string>
+    <string name="hint_21_1">bộ lông của chúng thay đổi theo mùa</string>
+    <string name="hint_21_2">rất xảo quyệt</string>
+    <string name="hint_22_0">biểu tượng của hòa bình</string>
+    <string name="hint_22_1">chuyên dùng để đưa thư</string>
+    <string name="hint_22_2">quay lên ăn rất ngon, khà khà :D</string>
+    <string name="hint_23_0">nó là chúa tể đầm lầy</string>
+    <string name="hint_23_1">hàm răng của chúng rất khỏe</string>
+    <string name="hint_23_2">xấu như cá ....</string>
+    <string name="hint_24_0">thích ăn mật ong, cá hồi</string>
+    <string name="hint_24_1">khi chạy xuống dốc hay bị ngã do chân ngắn</string>
+    <string name="hint_24_2">người hung hăng được gọi là đầu ....</string>
+    <string name="hint_25_0">sống ở Sa mạc</string>
+    <string name="hint_25_1">có bướu để chứa mỡ, nước</string>
+    <string name="hint_25_2">loài ở Châu á có 1 bướu, ở Châu Phi có 2 bướu</string>
+    <string name="hint_26_0">sống ở ven biển</string>
+    <string name="hint_26_1">là loài chim báo bão</string>
+    <string name="hint_26_2">chuyên ăn xác cá chết</string>
 
 </resources>
