@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import vn.hust.zoo.R;
 import vn.hust.zoo.logic.GameLogic;
-import vn.hust.zoo.logic.Score;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -93,10 +92,6 @@ public class GameActivity extends Activity  implements FragmentManager.OnBackSta
 			((Button) findViewById(R.id.replay)).setVisibility(View.VISIBLE);
 			((Button) findViewById(R.id.next)).setVisibility(View.VISIBLE);
 			((Button) findViewById(R.id.menu)).setVisibility(View.VISIBLE);
-			
-			int score = Score.getScore(GameLogic.getLevel());
-			if(score < 3)Score.setScore(GameLogic.getLevel(), score+1);
-			
 		}else{
 			Log.d("Result", "False");
 			if(GameLogic.isAnswerFullOfChar()) ((ImageView) findViewById(R.id.result_false)).setVisibility(View.VISIBLE);
