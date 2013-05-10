@@ -40,10 +40,11 @@ public class GameLogic {
 	}
 	
 	public static void loadStar(Activity mActivity){
+	    	int maxStar = Score.getScore(GameLogic.level);
 		int star = 3 - 3*GameLogic.wrongAnswer/GameLogic.animalName.length();
 		star = 1 > star ? 1 : star;
 		GameLogic.gameWinStar =  mActivity.getResources().getIdentifier("star_" + star + "_big", "drawable", mActivity.getPackageName());
-		Score.setScore(GameLogic.level, star);
+		if (maxStar < star) Score.setScore(GameLogic.level, star);
 	}
 	
 	public static void initCharacter(){
